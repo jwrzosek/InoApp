@@ -9,27 +9,29 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.example.inoapp.databinding.FragmentTripListBinding
-
+import com.example.inoapp.databinding.FragmentAddNewTripBinding
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class TripListFragment : Fragment() {
+class AddNewTripFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentTripListBinding>(inflater,
-            R.layout.fragment_trip_list, container,false)
+        val binding = DataBindingUtil.inflate<FragmentAddNewTripBinding>(inflater,
+            R.layout.fragment_add_new_trip, container,false)
 
         // Setting the support action bar title
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_trip_list_fragment)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_add_new_trip)
 
         //The complete onClickListener with Navigation
-        binding.backButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_tripListFragment_to_homeFragment)
+        binding.addButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addNewTripFragment_to_homeFragment)
         }
+
         return binding.root
     }
+
+
 }

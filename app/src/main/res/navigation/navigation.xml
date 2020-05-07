@@ -8,10 +8,18 @@
               android:label="fragment_home" tools:layout="@layout/fragment_home">
         <action android:id="@+id/action_homeFragment_to_tripListFragment" app:destination="@id/tripListFragment"/>
     </fragment>
+
     <fragment android:id="@+id/tripListFragment" android:name="com.example.inoapp.TripListFragment"
               android:label="fragment_trip_list" tools:layout="@layout/fragment_trip_list">
         <action android:id="@+id/action_tripListFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
+
     <fragment android:id="@+id/aboutFragment" android:name="com.example.inoapp.AboutFragment"
               android:label="fragment_about" tools:layout="@layout/fragment_about"/>
+
+    <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.AddNewTripFragment"
+              android:label="fragment_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
+        <action android:id="@+id/action_addNewTripFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+    </fragment>
+
 </navigation>

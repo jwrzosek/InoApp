@@ -15,5 +15,13 @@
     <string name="menu_contact">Contact Us</string>
 
     <!-- About strings -->
-    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\n\nConsider modifying the questions and graphics to make this game your own!</string>
+    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn
+        in Android development.\n\nConsider modifying the questions and graphics to make this game your own!
+    </string>
+
+    <!-- Titles of fragments supportActionBars  -->
+    <string name="title_about_fragment">About Us</string>
+    <string name="title_trip_list_fragment">Trip List</string>
+    <string name="title_home_fragment">Ino App</string>
+    <string name="title_add_new_trip">Add New Trip!</string>
 </resources>

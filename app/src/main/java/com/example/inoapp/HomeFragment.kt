@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.inoapp.databinding.FragmentHomeBinding
@@ -21,13 +22,15 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
             R.layout.fragment_home,container,false)
 
+        // Setting the support action bar title
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_home_fragment)
+
         //The complete onClickListener with Navigation
         binding.playButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_homeFragment_to_tripListFragment)
         }
 
         return binding.root
-
     }
 
 
