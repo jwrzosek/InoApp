@@ -68,13 +68,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
                 // Handle the camera action
             }
-            R.id.nav_tools -> {
+            R.id.nav_trip_list -> {
 
             }
-            R.id.nav_share -> {
+            R.id.nav_add_new_trip -> {
 
             }
-            R.id.nav_send -> {
+            R.id.nav_about -> {
+
+            }
+            R.id.nav_contact -> {
 
             }
         }
