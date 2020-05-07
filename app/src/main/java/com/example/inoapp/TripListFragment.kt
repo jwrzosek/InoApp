@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.inoapp.databinding.FragmentTripListBinding
 
 
@@ -21,6 +22,11 @@ class TripListFragment : Fragment() {
 
         val binding = DataBindingUtil.inflate<FragmentTripListBinding>(inflater,
             R.layout.fragment_trip_list,container,false)
+
+        //The complete onClickListener with Navigation
+        binding.backButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_tripListFragment_to_homeFragment)
+        }
         return binding.root
     }
 }
