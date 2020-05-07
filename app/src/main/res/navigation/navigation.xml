@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment" android:name="com.example.inoapp.HomeFragment"
+              android:label="fragment_home" tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_homeFragment_to_tripListFragment" app:destination="@id/tripListFragment"/>
+    </fragment>
+    <fragment android:id="@+id/tripListFragment" android:name="com.example.inoapp.TripListFragment"
+              android:label="fragment_trip_list" tools:layout="@layout/fragment_trip_list"/>
+</navigation>
