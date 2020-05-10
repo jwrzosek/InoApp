@@ -27,9 +27,6 @@ class YourTripsFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentYourTripsBinding>(inflater,
             R.layout.fragment_your_trips, container,false)
 
-        // Setting the support action bar title
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_your_trips_fragment)
-
         // view Model
         val application = requireNotNull(this.activity).application
 

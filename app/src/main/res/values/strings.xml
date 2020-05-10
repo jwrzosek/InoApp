@@ -26,4 +26,8 @@
     <string name="title_home_fragment">Ino App</string>
     <string name="title_add_new_trip">Add New Trip!</string>
     <string name="title_your_trips_fragment">Your Trips</string>
+
+    <!-- Card view default strings -->
+    <string name="card_view_title_default">Trip title</string>
+    <string name="card_view_description_default">Trip description</string>
 </resources>

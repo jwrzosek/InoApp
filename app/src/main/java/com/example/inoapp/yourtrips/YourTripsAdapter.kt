@@ -1,13 +1,14 @@
 package com.example.inoapp.yourtrips
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inoapp.R
 import com.example.inoapp.database.Trip
 
-class YourTripsAdapter : RecyclerView.Adapter<TextItemViewHolder>() {
+class YourTripsAdapter : RecyclerView.Adapter<YourTripsAdapter.ViewHolder>() {
 
     var data =  listOf<Trip>()
         set(value) {
@@ -16,18 +17,26 @@ class YourTripsAdapter : RecyclerView.Adapter<TextItemViewHolder>() {
         }
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: TextItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        holder.textView.text = item.tripTitle
+        //val res = holder.itemView.context.resources
+        holder.tripTitle.text = item.tripTitle
+        holder.tripDescription.text = item.tripDescription
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater
-            .inflate(R.layout.text_item_view, parent, false) as TextView
-        return TextItemViewHolder(view)
+        val view = layoutInflater.inflate(R.layout.card_view_your_trip_item, parent, false)
+
+        return ViewHolder(view)
+    }
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tripTitle: TextView = itemView.findViewById(R.id.trip_item_title)
+        val tripDescription: TextView = itemView.findViewById(R.id.trip_item_description)
     }
 
 }
 
+// todo: usunac
 class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)

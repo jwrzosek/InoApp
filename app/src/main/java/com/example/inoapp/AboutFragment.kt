@@ -18,9 +18,6 @@ class AboutFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        // Setting the support action bar title
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_about_fragment)
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about, container, false)
     }
