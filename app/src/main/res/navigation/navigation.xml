@@ -21,5 +21,9 @@
               android:label="fragment_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
         <action android:id="@+id/action_addNewTripFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
+    <fragment android:id="@+id/yourTripsFragment" android:name="com.example.inoapp.YourTripsFragment"
+              android:label="YourTripsFragment">
+        <action android:id="@+id/action_yourTripsFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+    </fragment>
 
 </navigation>

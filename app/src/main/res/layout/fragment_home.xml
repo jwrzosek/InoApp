@@ -17,7 +17,7 @@
                 android:layout_marginEnd="@dimen/fab_margin"
                 android:paddingStart="@dimen/fab_margin"
                 android:paddingEnd="@dimen/fab_margin"
-                android:text="Play"
+                android:text="Go to trip list!"
                 android:textColor="@color/colorAccent"
                 android:textSize="10dp"
                 android:textStyle="bold"
