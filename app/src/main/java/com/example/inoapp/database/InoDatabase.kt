@@ -64,7 +64,7 @@ abstract class InoDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         InoDatabase::class.java,
-                        "ino_history_database"
+                        "ino_trips_database"
                     )
                         // Wipes and rebuilds instead of migrating if no Migration object.
                         // Migration is not part of this lesson. You can learn more about

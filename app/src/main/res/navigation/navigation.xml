@@ -5,24 +5,24 @@
             app:startDestination="@id/homeFragment">
 
     <fragment android:id="@+id/homeFragment" android:name="com.example.inoapp.HomeFragment"
-              android:label="fragment_home" tools:layout="@layout/fragment_home">
+              android:label="@string/title_home_fragment" tools:layout="@layout/fragment_home">
         <action android:id="@+id/action_homeFragment_to_tripListFragment" app:destination="@id/tripListFragment"/>
     </fragment>
 
     <fragment android:id="@+id/tripListFragment" android:name="com.example.inoapp.TripListFragment"
-              android:label="fragment_trip_list" tools:layout="@layout/fragment_trip_list">
+              android:label="@string/title_trip_list_fragment" tools:layout="@layout/fragment_trip_list">
         <action android:id="@+id/action_tripListFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
 
     <fragment android:id="@+id/aboutFragment" android:name="com.example.inoapp.AboutFragment"
-              android:label="fragment_about" tools:layout="@layout/fragment_about"/>
+              android:label="@string/title_about_fragment" tools:layout="@layout/fragment_about"/>
 
     <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.AddNewTripFragment"
-              android:label="fragment_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
+              android:label="@string/title_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
         <action android:id="@+id/action_addNewTripFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
     <fragment android:id="@+id/yourTripsFragment" android:name="com.example.inoapp.yourtrips.YourTripsFragment"
-              android:label="YourTripsFragment">
+              android:label="@string/title_your_trips_fragment">
         <action android:id="@+id/action_yourTripsFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
 

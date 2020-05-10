@@ -26,6 +26,14 @@ interface TripDatabaseDao {
     fun update(trip: Trip)
 
     /**
+     * Selects and returns the row that matches the supplied start time, which is our key.
+     *
+     * @param key startTimeMilli to match
+     */
+    @Query("SELECT * from trips WHERE tripId = :key")
+    fun get(key: Long): Trip?
+
+    /**
      * Deletes all values from the table.
      *
      * This does not delete the table, only its contents.
@@ -45,5 +53,5 @@ interface TripDatabaseDao {
      * Selects and returns the latest night.
      */
     @Query("SELECT * FROM trips ORDER BY tripId DESC LIMIT 1")
-    fun getTonight(): Trip?
+    fun getLastTrip(): Trip?
 }
