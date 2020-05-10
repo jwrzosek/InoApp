@@ -19,24 +19,32 @@ class YourTripsAdapter : RecyclerView.Adapter<YourTripsAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        //val res = holder.itemView.context.resources
-        holder.tripTitle.text = item.tripTitle
-        holder.tripDescription.text = item.tripDescription
+        holder.bind(item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.card_view_your_trip_item, parent, false)
-
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tripTitle: TextView = itemView.findViewById(R.id.trip_item_title)
         val tripDescription: TextView = itemView.findViewById(R.id.trip_item_description)
+
+        fun bind(item: Trip) {
+            //val res = holder.itemView.context.resources
+            tripTitle.text = item.tripTitle
+            tripDescription.text = item.tripDescription
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val view = layoutInflater
+                    .inflate(R.layout.card_view_your_trip_item, parent, false)
+
+                return ViewHolder(view)
+            }
+        }
     }
 
 }
-
-// todo: usunac
-class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
