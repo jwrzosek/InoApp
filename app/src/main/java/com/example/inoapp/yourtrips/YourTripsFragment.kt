@@ -1,4 +1,4 @@
-package com.example.inoapp
+package com.example.inoapp.yourtrips
 
 
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.inoapp.R
 import com.example.inoapp.databinding.FragmentYourTripsBinding
 
 
