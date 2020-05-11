@@ -22,9 +22,6 @@ class AddNewTripFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentAddNewTripBinding>(inflater,
             R.layout.fragment_add_new_trip, container,false)
 
-        // Setting the support action bar title
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_add_new_trip)
-
         //The complete onClickListener with Navigation
         binding.addButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_addNewTripFragment_to_homeFragment)

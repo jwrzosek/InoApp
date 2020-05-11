@@ -9,14 +9,15 @@
 
     <!-- Navigation Drawer menu string -->
     <string name="menu_home">Home</string>
-    <string name="menu_list">Trip List</string>
+    <string name="menu_trip_list">All Trips</string>
+    <string name="menu_your_trips">Your Trips</string>
     <string name="menu_add">Add New Trip</string>
     <string name="menu_about">About Us</string>
     <string name="menu_contact">Contact Us</string>
 
     <!-- About strings -->
-    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn
-        in Android development.\n\nConsider modifying the questions and graphics to make this game your own!
+    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to discover unknown, amazing
+        places and learn something about them solving quizzes and trying to get to the right location.
     </string>
 
     <!-- Titles of fragments supportActionBars  -->
@@ -24,4 +25,9 @@
     <string name="title_trip_list_fragment">Trip List</string>
     <string name="title_home_fragment">Ino App</string>
     <string name="title_add_new_trip">Add New Trip!</string>
+    <string name="title_your_trips_fragment">Your Trips</string>
+
+    <!-- Card view default strings -->
+    <string name="card_view_title_default">Trip title</string>
+    <string name="card_view_description_default">Trip description</string>
 </resources>

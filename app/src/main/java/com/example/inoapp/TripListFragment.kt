@@ -23,9 +23,6 @@ class TripListFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentTripListBinding>(inflater,
             R.layout.fragment_trip_list, container,false)
 
-        // Setting the support action bar title
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_trip_list_fragment)
-
         //The complete onClickListener with Navigation
         binding.backButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_tripListFragment_to_homeFragment)

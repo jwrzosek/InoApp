@@ -12,7 +12,11 @@
         <item
                 android:id="@+id/tripListFragment"
                 android:icon="@drawable/ic_menu_list"
-                android:title="@string/menu_list"/>
+                android:title="@string/menu_trip_list"/>
+        <item
+                android:id="@+id/yourTripsFragment"
+                android:icon="@drawable/ic_menu_trips"
+                android:title="@string/menu_your_trips"/>
         <item
                 android:id="@+id/addNewTripFragment"
                 android:icon="@drawable/ic_menu_add"
