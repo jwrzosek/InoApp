@@ -52,7 +52,8 @@ class YourTripsFragment : Fragment() {
 
         yourTripsViewModel.trips.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.data = it
+                // submitList() is a ListAdapter method to tell that a new version of a list is available
+                adapter.submitList(it)
             }
         })
 

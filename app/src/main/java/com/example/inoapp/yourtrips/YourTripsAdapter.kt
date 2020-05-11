@@ -4,21 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inoapp.R
 import com.example.inoapp.database.Trip
 
-class YourTripsAdapter : RecyclerView.Adapter<YourTripsAdapter.ViewHolder>() {
-
-    var data =  listOf<Trip>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-    override fun getItemCount() = data.size
+class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTripsDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+        val item = getItem(position)
         holder.bind(item)
     }
 
@@ -48,3 +43,46 @@ class YourTripsAdapter : RecyclerView.Adapter<YourTripsAdapter.ViewHolder>() {
     }
 
 }
+
+
+/**
+ * This class is used by ListAdapter to figure out what changed in the list
+ */
+class YourTripsDiffCallback : DiffUtil.ItemCallback<Trip>() {
+    override fun areItemsTheSame(oldItem: Trip, newItem: Trip): Boolean {
+        return oldItem.tripId == newItem.tripId
+    }
+
+    override fun areContentsTheSame(oldItem: Trip, newItem: Trip): Boolean {
+        return oldItem == newItem // data classes automatically define equals so we can do this kind of check
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
