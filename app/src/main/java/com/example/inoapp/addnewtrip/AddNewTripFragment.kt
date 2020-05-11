@@ -1,4 +1,4 @@
-package com.example.inoapp
+package com.example.inoapp.addnewtrip
 
 
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.inoapp.R
 import com.example.inoapp.databinding.FragmentAddNewTripBinding
 
 /**
@@ -23,9 +23,9 @@ class AddNewTripFragment : Fragment() {
             R.layout.fragment_add_new_trip, container,false)
 
         //The complete onClickListener with Navigation
-        binding.addButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_addNewTripFragment_to_homeFragment)
-        }
+        //binding.addNewTripButton.setOnClickListener { view : View ->
+        //    view.findNavController().navigate(R.id.action_addNewTripFragment_to_homeFragment)
+       // }
 
         return binding.root
     }

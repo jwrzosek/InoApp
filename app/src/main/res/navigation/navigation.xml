@@ -17,7 +17,7 @@
     <fragment android:id="@+id/aboutFragment" android:name="com.example.inoapp.AboutFragment"
               android:label="@string/title_about_fragment" tools:layout="@layout/fragment_about"/>
 
-    <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.AddNewTripFragment"
+    <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.addnewtrip.AddNewTripFragment"
               android:label="@string/title_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
         <action android:id="@+id/action_addNewTripFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
