@@ -16,7 +16,8 @@
     <string name="menu_contact">Contact Us</string>
 
     <!-- About strings -->
-    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to discover unknown, amazing
+    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to
+        discover unknown, amazing
         places and learn something about them solving quizzes and trying to get to the right location.
     </string>
 
@@ -41,4 +42,8 @@
     <string name="add_new_trip_button_add_new_point">Add new point</string>
     <string name="add_new_trip_button_clear_last_point">Clear last point</string>
     <string name="add_new_trip_button_add_new_trip">Add new trip!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_add_new_point">Add new point!</string>
 </resources>

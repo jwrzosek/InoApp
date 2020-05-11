@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.example.inoapp.addnewtrip.AddNewTripFragment">
+        tools:context="com.example.inoapp.addnewtrip.AddNewPointFragment">
 
 
     <ScrollView
-            android:id="@+id/add_new_trip_scroll"
+            android:id="@+id/add_new_point_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -16,7 +16,7 @@
                 android:paddingStart="24dp"
                 android:paddingEnd="24dp">
 
-            <!-- Trip title -->
+            <!-- Point location -->
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -24,14 +24,49 @@
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="@string/add_new_trip_trip_title"/>
+                    android:text="Point location:"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:gravity="top"
+                    android:text="Point coordinates: you haven't pick location yet"/>
+
+            <Button
+                    android:id="@+id/add_new_point_add_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingStart="@dimen/fab_margin"
+                    android:paddingEnd="@dimen/fab_margin"
+                    android:text="Add point location!"
+                    style="@style/Buttons"/>
+
+            <!-- Separator line -->
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/theme2ColorDark"/>
+
+            <!-- Point description -->
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="top"
+                    android:text="Point description (optional):"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="@string/add_new_trip_trip_title_hint"/>
+                    android:hint="Add point description"/>
 
-            <!-- Trip description -->
+            <!-- Quiz -->
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -39,33 +74,33 @@
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="@string/add_new_trip_trip_description"/>
+                    android:text="Add quiz question and answers:"/>
+
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="@string/add_new_trip_trip_description_hint"/>
+                    android:hint="Question"/>
 
-            <!-- Number of points text view -->
-            <TextView
+            <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginTop="16dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:gravity="top"
-                    android:text="@string/add_new_trip_number_of_points"/>
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapSentences|textMultiLine"
+                    android:hint="Right answer"/>
 
-            <!-- Trip description -->
-            <TextView
+            <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginTop="16dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:gravity="top"
-                    android:text="@string/add_new_trip_points_added"/>
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapSentences|textMultiLine"
+                    android:hint="Wrong answer 1"/>
 
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapSentences|textMultiLine"
+                    android:hint="Wrong answer 2"/>
+
+            <!-- Separator line -->
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -73,35 +108,27 @@
                     android:background="@color/theme2ColorDark"/>
 
             <!-- Buttons -->
+
             <Button
-                    android:id="@+id/add_new_trip_add_new_point"
+                    android:id="@+id/add_new_point_add_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
-                    android:text="@string/add_new_trip_button_add_new_point"
+                    android:text="Add new point!"
                     style="@style/Buttons"/>
 
+            <!-- Buttons -->
             <Button
-                    android:id="@+id/add_new_trip_clear_last_point"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:paddingStart="@dimen/fab_margin"
-                    android:paddingEnd="@dimen/fab_margin"
-                    android:text="@string/add_new_trip_button_clear_last_point"
-                    style="@style/Buttons"/>
-
-            <Button
-                    android:id="@+id/add_new_trip_add_button"
+                    android:id="@+id/add_new_point_back_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
-                    android:text="@string/add_new_trip_button_add_new_trip"
+                    android:text="Back to trip adding window"
                     style="@style/Buttons"/>
         </LinearLayout>
     </ScrollView>
