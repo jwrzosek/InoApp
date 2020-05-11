@@ -1,14 +1,12 @@
 package com.example.inoapp.yourtrips
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.inoapp.R
 import com.example.inoapp.database.Trip
+import com.example.inoapp.databinding.CardViewYourTripItemBinding
 
 class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTripsDiffCallback()) {
 
@@ -21,23 +19,19 @@ class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTrip
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tripTitle: TextView = itemView.findViewById(R.id.trip_item_title)
-        val tripDescription: TextView = itemView.findViewById(R.id.trip_item_description)
+    class ViewHolder private constructor(val binding: CardViewYourTripItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Trip) {
-            //val res = holder.itemView.context.resources
-            tripTitle.text = item.tripTitle
-            tripDescription.text = item.tripDescription
+            //val res = holder.binding.context.resources
+            binding.tripItemTitle.text = item.tripTitle
+            binding.tripItemDescription.text = item.tripDescription
         }
 
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater
-                    .inflate(R.layout.card_view_your_trip_item, parent, false)
-
-                return ViewHolder(view)
+                val binding = CardViewYourTripItemBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
             }
         }
     }
