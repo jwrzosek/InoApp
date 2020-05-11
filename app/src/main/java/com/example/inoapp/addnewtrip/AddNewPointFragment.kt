@@ -27,7 +27,11 @@ class AddNewPointFragment : Fragment() {
         //The complete onClickListener with Navigation
         binding.addNewPointBackButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_addNewPointFragment_to_addNewTripFragment)
-         }
+        }
+
+        binding.addNewPointAddLocation.setOnClickListener { view : View ->
+            view.findNavController().navigate(R.id.action_addNewPointFragment_to_mapFragment)
+        }
 
         return binding.root
     }

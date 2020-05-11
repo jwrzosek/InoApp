@@ -61,5 +61,8 @@ dependencies {
     // View Model Providers
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 
+    // Google Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
 
 }

@@ -45,7 +45,7 @@ class YourTripsFragment : Fragment() {
 
         // Specify the current activity as the lifecycle owner of the binding.
         // This is necessary so that the binding can observe LiveData updates.
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         val adapter = YourTripsAdapter()
         binding.yourTripsList.adapter = adapter
