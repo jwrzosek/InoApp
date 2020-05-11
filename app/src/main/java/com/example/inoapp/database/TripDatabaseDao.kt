@@ -42,6 +42,14 @@ interface TripDatabaseDao {
     fun clear()
 
     /**
+     * Deletes all values from the table.
+     *
+     * This does not delete the table, only its contents.
+     */
+    @Query("DELETE FROM trips WHERE tripId=(SELECT MAX(tripId) FROM trips)")
+    fun deleteLastTrip()
+
+    /**
      * Selects and returns all rows in the table,
      *
      * sorted by start time in descending order.

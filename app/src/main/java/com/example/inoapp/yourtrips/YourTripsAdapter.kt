@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.inoapp.database.Trip
 import com.example.inoapp.databinding.CardViewYourTripItemBinding
 
+/**
+ * Adapter class for RecyclerView used in YourTripsFragment
+ */
 class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTripsDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

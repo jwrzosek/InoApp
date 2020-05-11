@@ -51,7 +51,7 @@ class YourTripsViewModel(dataSource: TripDatabaseDao, application: Application) 
 
     private suspend fun clear() {
         withContext(Dispatchers.IO) {
-            database.clear()
+            database.deleteLastTrip()
         }
     }
 
