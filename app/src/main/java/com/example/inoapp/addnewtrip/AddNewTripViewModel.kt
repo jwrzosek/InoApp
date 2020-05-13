@@ -42,6 +42,9 @@ open class AddNewTripViewModel : ViewModel() {
      *  Trip description attributes (AddNewTripFragment).
      */
 
+    val tripTitle = MutableLiveData<String>()
+
+    val tripDescription = MutableLiveData<String>()
 
     /**
      *  Initialization.
@@ -54,10 +57,9 @@ open class AddNewTripViewModel : ViewModel() {
 
 
 
-    fun onCoordinatesChanged(lat : Double, lng : Double) {
+    fun onCoordinatesChanged(lat: Double, lng: Double) {
         _latitude.value = lat
         _longitude.value = lng
-
     }
 
     override fun onCleared() {

@@ -34,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="@string/add_new_trip_trip_title_hint"/>
+                    android:hint="@string/add_new_trip_trip_title_hint"
+                    android:text="@={addNewTripViewModel.tripTitle}"/>
 
             <!-- Trip description -->
             <TextView
@@ -49,7 +50,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="@string/add_new_trip_trip_description_hint"/>
+                    android:hint="@string/add_new_trip_trip_description_hint"
+                    android:text="@={addNewTripViewModel.tripDescription}"/>
 
             <!-- Number of points text view -->
             <TextView

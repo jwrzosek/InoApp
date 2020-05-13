@@ -73,8 +73,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         // todo: add logic for picking location that open map on user location
         // delete hardcoded values
-        val latitude = 52.181510
-        val longitude = 21.054533
+        val latitude = requireNotNull(viewModel.latitude.value)//52.181510
+        val longitude = requireNotNull(viewModel.longitude.value)// 21.054533
 
         val homeLatLng = LatLng(latitude, longitude)
         val zoomLevel = 15f
