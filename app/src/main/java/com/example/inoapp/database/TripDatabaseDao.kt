@@ -1,10 +1,7 @@
 package com.example.inoapp.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 
 /**
@@ -13,8 +10,32 @@ import androidx.room.Update
 @Dao
 interface TripDatabaseDao {
 
+
+    // TRIP WITH POINTS
+    /**
+     * Selecting all trips with corresponding points.
+     */
+    @Transaction
+    @Query("SELECT * FROM trips")
+    fun getTripsWithPoints(): List<TripWithPoints>
+
+    @Transaction
     @Insert
-    fun insert(trip: Trip)
+    fun insertTripsWithPoints(trip: Trip, points: List<Point>)
+
+    // POINT
+    /**
+     * Inserting list of Points based on trip id.
+     */
+    @Insert
+    fun insertPointList(points: List<Point>)
+
+    // TRIP
+    /**
+     * Inserting new trip and returning its id.
+     */
+    @Insert
+    fun insertTrip(trip: Trip) : Long
 
     /**
      * When updating a row with a value already set in a column,
@@ -54,6 +75,7 @@ interface TripDatabaseDao {
      *
      * sorted by start time in descending order.
      */
+    @Transaction
     @Query("SELECT * FROM trips ORDER BY tripId DESC")
     fun getAllTrips(): LiveData<List<Trip>>
 

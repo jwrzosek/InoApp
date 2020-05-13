@@ -32,7 +32,7 @@ class YourTripsFragment : Fragment() {
 
         // Create an instance of the ViewModel Factory.
         val dataSource = InoDatabase.getInstance(application).tripDatabaseDao
-        val viewModelFactory = YourTripsViewModelFactory(dataSource, application)
+        val viewModelFactory = YourTripsViewModelFactory(dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
         val yourTripsViewModel =

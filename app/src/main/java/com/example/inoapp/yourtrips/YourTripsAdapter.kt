@@ -38,9 +38,7 @@ class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTrip
             }
         }
     }
-
 }
-
 
 /**
  * This class is used by ListAdapter to figure out what changed in the list

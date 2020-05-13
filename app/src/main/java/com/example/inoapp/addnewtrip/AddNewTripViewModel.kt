@@ -84,7 +84,7 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     // Room Database stuff
     private suspend fun insert(trip: Trip) {
         withContext(Dispatchers.IO) {
-            database.insert(trip)
+            database.insertTrip(trip)
         }
     }
 
@@ -95,8 +95,9 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
         uiScope.launch {
             // Create a new trip, with random title,
             // and insert it into the database.
-            val newTrip = Trip(tripTitle = "From AddNewTripFragment")
+            val newTrip = Trip(tripTitle = "From AddNewTripFragment", tripDescription = "description")
 
+            // todo: add correct trip with points inserting
             insert(newTrip)
 
             _navigateToHomeFragment.value = true

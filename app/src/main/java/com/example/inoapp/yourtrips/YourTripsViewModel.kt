@@ -1,13 +1,13 @@
 package com.example.inoapp.yourtrips
 
-import android.app.Application
-import androidx.lifecycle.MutableLiveData
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.inoapp.database.Point
 import com.example.inoapp.database.Trip
 import com.example.inoapp.database.TripDatabaseDao
 import kotlinx.coroutines.*
 
-class YourTripsViewModel(dataSource: TripDatabaseDao, application: Application) : ViewModel() {
+class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     val database = dataSource
 
@@ -15,37 +15,46 @@ class YourTripsViewModel(dataSource: TripDatabaseDao, application: Application) 
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var lastTrip = MutableLiveData<Trip?>()
-
     val trips = database.getAllTrips()
 
+    //private lateinit var twp: List<TripWithPoints> todo: delete when stop being needed for testing
+
     init {
-        initializeTrips()
+        //initializeTrips() // todo: delete when stop being needed for testing
     }
 
+    /* // todo: delete when stop being needed for testing
     private fun initializeTrips() {
         uiScope.launch {
-            lastTrip.value = getTonightFromDatabase()
+            twp = getTripWithPointsFromDatabase()
+            Log.d("YourTripsViewModel",
+                "${twp.last().trip.tripTitle}\n" +
+            "${twp.last().points.last().ownerTripId}" +
+                    "\"${twp.last().points.last().pointLatitude}" +
+                    "\"${twp.last().points.last().pointQuestion}")
         }
     }
-
-    /**
-     *  Handling the case of the stopped app or forgotten recording,
-     *  the start and end times will be the same.j
-     *
-     *  If the start time and end time are not the same, then we do not have an unfinished
-     *  recording.
-     */
-    private suspend fun getTonightFromDatabase(): Trip? {
+    private suspend fun getTripWithPointsFromDatabase(): List<TripWithPoints> {
         return withContext(Dispatchers.IO) {
-            val lastTrip = database.getLastTrip()
-            lastTrip
+            val tripWithPoints = database.getTripsWithPoints()
+            tripWithPoints
         }
+    }*/
+
+
+
+    private suspend fun insertTrip(trip: Trip) : Long{
+        var tripId = 0L
+        withContext(Dispatchers.IO) {
+            tripId = database.insertTrip(trip)
+            Log.d("YourTripsViewModel", "id = $tripId") // todo: delete when stop being needed for testing
+        }
+        return tripId
     }
 
-    private suspend fun insert(trip: Trip) {
+    private suspend fun insertPointList(points: List<Point>) {
         withContext(Dispatchers.IO) {
-            database.insert(trip)
+            database.insertPointList(points)
         }
     }
 
@@ -60,11 +69,37 @@ class YourTripsViewModel(dataSource: TripDatabaseDao, application: Application) 
      */
     fun onStart() {
         uiScope.launch {
-            // Create a new trip, with random title,
-            // and insert it into the database.
-            val newTrip = Trip(tripTitle = "Random title")
 
-            insert(newTrip)
+            // Create a new trip with data from UI
+            val newTrip = Trip(tripTitle = "Random", tripDescription = "description")
+
+            // Insert Trip data and get inserted trip id
+            val tripId = insertTrip(newTrip)
+            Log.d("YourTripsViewModel", "id = $tripId") // todo: delete when stop being needed for testing
+
+            // Create list of added points and insert them into
+            // database using tripId received in previous step
+            val points = listOf(
+                Point(
+                    ownerTripId = tripId,
+                    pointLatitude = 52.181510,
+                    pointLongitude = 21.054533,
+                    pointDescription = "desc",
+                    pointQuestion = "question",
+                    rightAnswer = "right",
+                    wrongAnswer1 = "wrong1",
+                    wrongAnswer2 = "wrong2"),
+                Point(
+                    ownerTripId = tripId,
+                    pointLatitude = 52.181510,
+                    pointLongitude = 21.054533,
+                    pointDescription = "desc",
+                    pointQuestion = "question",
+                    rightAnswer = "right",
+                    wrongAnswer1 = "wrong3",
+                    wrongAnswer2 = "wrong4"))
+
+            insertPointList(points)
         }
     }
 

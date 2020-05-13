@@ -9,13 +9,12 @@ import com.example.inoapp.database.TripDatabaseDao
  * Provides the TripDatabaseDao and context to the ViewModel.
  */
 class YourTripsViewModelFactory(
-    private val dataSource: TripDatabaseDao,
-    private val application: Application) : ViewModelProvider.Factory {
+    private val dataSource: TripDatabaseDao) : ViewModelProvider.Factory {
 
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(YourTripsViewModel::class.java)) {
-            return YourTripsViewModel(dataSource, application) as T
+            return YourTripsViewModel(dataSource) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
