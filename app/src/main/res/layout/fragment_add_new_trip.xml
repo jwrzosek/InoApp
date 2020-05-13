@@ -3,6 +3,11 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:context="com.example.inoapp.addnewtrip.AddNewTripFragment">
 
+    <data>
+        <variable
+                name="addNewTripViewModel"
+                type="com.example.inoapp.addnewtrip.AddNewTripViewModel" />
+    </data>
 
     <ScrollView
             android:id="@+id/add_new_trip_scroll"

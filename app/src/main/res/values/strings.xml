@@ -41,9 +41,22 @@
     <string name="add_new_trip_trip_description_hint">Enter trip description</string>
     <string name="add_new_trip_number_of_points">Number of points: 0</string>
     <string name="add_new_trip_points_added">Points added:</string>
-    <string name="add_new_trip_button_add_new_point">Add new point</string>
+    <string name="add_new_trip_button_add_new_point">Add point</string>
     <string name="add_new_trip_button_clear_last_point">Clear last point</string>
     <string name="add_new_trip_button_add_new_trip">Add new trip!</string>
+
+    <!-- AddNewPiontFragment layout strings -->
+    <string name="add_new_point_location_label">Point location:</string>
+    <string name="add_new_point_add_location_button_text">Add point location!</string>
+    <string name="add_new_point_add_description_label_text">Point description (optional):</string>
+    <string name="add_new_point_description_content_hint">Add point description</string>
+    <string name="add_new_point_add_question_label_text">Add quiz question and answers:</string>
+    <string name="add_new_point_question_hint">Question</string>
+    <string name="add_new_point_right_answer_hint">Right answer</string>
+    <string name="add_new_point_wrong_answer1_hint">Wrong answer 1</string>
+    <string name="add_new_point_wrong_answer2_hint">Wrong answer 2</string>
+    <string name="add_new_point_add_new_point_button_text">Add new point!</string>
+    <string name="add_new_point_back_button_text">Back to trip adding window</string>
 
     <!-- MapFragment layout strings -->
     <string name="map_fragment_add_location">Add location</string>
@@ -52,6 +65,7 @@
 
 
     <string name="title_activity_maps">Map</string>
+
 
 
 </resources>

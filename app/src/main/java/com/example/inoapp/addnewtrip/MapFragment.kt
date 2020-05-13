@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.navGraphViewModels
 
 import com.example.inoapp.R
 import com.example.inoapp.databinding.FragmentMapBinding
@@ -30,10 +31,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var googleMap: GoogleMap
 
-    private lateinit var viewModelFactory: AddNewTripViewModelFactory
 
-    private lateinit var addNewTripViewModel: AddNewTripViewModel
 
+    private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
+        defaultViewModelProviderFactory
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -48,13 +50,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val binding = DataBindingUtil.inflate<FragmentMapBinding>(inflater,
             R.layout.fragment_map, container,false)
 
-        viewModelFactory = AddNewTripViewModelFactory()
-        addNewTripViewModel = ViewModelProviders.of(
-            this, viewModelFactory).get(AddNewTripViewModel::class.java)
-
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
-        binding.addNewTripViewModel = addNewTripViewModel
+        binding.addNewTripViewModel = viewModel
 
         // Specify the current activity as the lifecycle owner of the binding.
         // This is necessary so that the binding can observe LiveData updates.
@@ -62,10 +60,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         //The complete onClickListener with Navigation
         binding.mapAddLocationButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_mapFragment_to_addNewPointFragment)
+            view.findNavController().navigateUp()
         }
-
-
 
         return binding.root
     }
@@ -75,6 +71,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             googleMap = it
         }
 
+        // todo: add logic for picking location that open map on user location
+        // delete hardcoded values
         val latitude = 52.181510
         val longitude = 21.054533
 
@@ -102,7 +100,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                     .title(getString(R.string.dropped_pin))
                     .snippet(snippet)
             )
-            addNewTripViewModel.onCoordinatesChanged(latLng.latitude, latLng.longitude)
+            viewModel.onCoordinatesChanged(latLng.latitude, latLng.longitude)
         }
     }
 

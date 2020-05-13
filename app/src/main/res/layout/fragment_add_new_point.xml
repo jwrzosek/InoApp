@@ -3,6 +3,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         tools:context="com.example.inoapp.addnewtrip.AddNewPointFragment">
 
+    <data>
+
+        <variable
+                name="addNewTripViewModel"
+                type="com.example.inoapp.addnewtrip.AddNewTripViewModel" />
+    </data>
 
     <ScrollView
             android:id="@+id/add_new_point_scroll"
@@ -18,30 +24,30 @@
 
             <!-- Point location -->
             <TextView
+                    android:id="@+id/add_new_point_location_label"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="Point location:"/>
+                    android:text="@string/add_new_point_location_label"/>
 
             <TextView
+                    android:id="@+id/add_new_point_location_content"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:gravity="top"
-                    android:text="Point coordinates: you haven't pick location yet"/>
+                    android:text="@{@string/coordinates_format(addNewTripViewModel.latitude, addNewTripViewModel.longitude)}"/>
 
             <Button
-                    android:id="@+id/add_new_point_add_location"
+                    android:id="@+id/add_new_point_add_location_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
-                    android:text="Add point location!"
+                    android:text="@string/add_new_point_add_location_button_text"
                     style="@style/Buttons"/>
 
             <!-- Separator line -->
@@ -53,52 +59,63 @@
 
             <!-- Point description -->
             <TextView
+                    android:id="@+id/add_new_point_description_label"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="Point description (optional):"/>
+                    android:text="@string/add_new_point_add_description_label_text"/>
+
             <EditText
+                    android:id="@+id/add_new_point_description_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="Add point description"/>
+                    android:hint="@string/add_new_point_description_content_hint"
+                    android:text="@={addNewTripViewModel.pointDescription}"/>
 
             <!-- Quiz -->
             <TextView
+                    android:id="@+id/add_new_point_question_label"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="Add quiz question and answers:"/>
+                    android:text="@string/add_new_point_add_question_label_text"/>
 
             <EditText
+                    android:id="@+id/add_new_point_question_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="Question"/>
+                    android:hint="@string/add_new_point_question_hint"
+                    android:text="@={addNewTripViewModel.pointQuestion}"/>
 
             <EditText
+                    android:id="@+id/add_new_point_right_answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="Right answer"/>
+                    android:hint="@string/add_new_point_right_answer_hint"
+                    android:text="@={addNewTripViewModel.rightAnswer}"/>
 
             <EditText
+                    android:id="@+id/add_new_point_wrong_answer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="Wrong answer 1"/>
+                    android:hint="@string/add_new_point_wrong_answer1_hint"
+                    android:text="@={addNewTripViewModel.wrongAnswer1}"/>
 
             <EditText
+                    android:id="@+id/add_new_point_wrong_answer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text|textCapSentences|textMultiLine"
-                    android:hint="Wrong answer 2"/>
+                    android:hint="@string/add_new_point_wrong_answer2_hint"
+                    android:text="@={addNewTripViewModel.wrongAnswer2}"/>
 
             <!-- Separator line -->
             <View
@@ -116,7 +133,7 @@
                     android:layout_marginTop="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
-                    android:text="Add new point!"
+                    android:text="@string/add_new_point_add_new_point_button_text"
                     style="@style/Buttons"/>
 
             <!-- Buttons -->
@@ -128,7 +145,7 @@
                     android:layout_marginBottom="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
-                    android:text="Back to trip adding window"
+                    android:text="@string/add_new_point_back_button_text"
                     style="@style/Buttons"/>
         </LinearLayout>
     </ScrollView>
