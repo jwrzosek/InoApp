@@ -56,7 +56,7 @@ class YourTripsViewModel(dataSource: TripDatabaseDao, application: Application) 
     }
 
     /**
-     * Executes when the START button is clicked.
+     * Executes when the Add New Trip button is clicked.
      */
     fun onStart() {
         uiScope.launch {

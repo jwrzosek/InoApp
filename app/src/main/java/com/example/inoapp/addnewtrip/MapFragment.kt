@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
 
 import com.example.inoapp.R
+import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentMapBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -31,11 +32,16 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var googleMap: GoogleMap
 
-
-
     private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
-        defaultViewModelProviderFactory
+        // Getting application context
+        val application = requireNotNull(this.activity).application
+
+        // Create an instance of the database
+        val dataSource = InoDatabase.getInstance(application).tripDatabaseDao
+
+        AddNewTripViewModelFactory(dataSource)
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 

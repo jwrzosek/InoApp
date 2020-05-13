@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.inoapp.R
+import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentAddNewPointBinding
 import com.example.inoapp.databinding.FragmentAddNewTripBinding
 
@@ -22,14 +23,26 @@ import com.example.inoapp.databinding.FragmentAddNewTripBinding
  */
 class AddNewPointFragment : Fragment() {
 
-    private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
+    /*private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
         defaultViewModelProviderFactory
-    }
+    }*/
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding = DataBindingUtil.inflate<FragmentAddNewPointBinding>(inflater,
             R.layout.fragment_add_new_point, container,false)
+
+        // Getting application context
+        val application = requireNotNull(this.activity).application
+
+        // Create an instance of the database
+        val dataSource = InoDatabase.getInstance(application).tripDatabaseDao
+
+        // Create viewModel
+        val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
+            //defaultViewModelProviderFactory
+            AddNewTripViewModelFactory(dataSource)
+        }
 
         binding.addNewTripViewModel = viewModel
 

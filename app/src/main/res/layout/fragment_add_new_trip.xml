@@ -108,6 +108,7 @@
                     android:layout_marginBottom="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
+                    android:onClick="@{() -> addNewTripViewModel.onAddNewTrip()}"
                     android:text="@string/add_new_trip_button_add_new_trip"
                     style="@style/Buttons"/>
         </LinearLayout>
