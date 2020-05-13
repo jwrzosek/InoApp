@@ -4,8 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.inoapp.database.TripDatabaseDao
 
-open class AddNewTripViewModel : ViewModel() {
+open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     /**
      *  Point description attributes.
