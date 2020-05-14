@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -53,7 +54,14 @@ class AddNewTripFragment : Fragment() {
                 this.findNavController().navigateUp()
                 viewModel.doneNavigating()
             }
+        })
 
+        // if data is incomplete then show Toast to user
+        viewModel.showIncompleteDataToast.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                Toast.makeText(application, "Complete your trip information!", Toast.LENGTH_SHORT).show()
+                viewModel.doneShowingToast()
+            }
         })
 
         //The complete onClickListener with Navigation

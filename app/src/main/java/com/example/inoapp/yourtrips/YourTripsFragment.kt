@@ -35,8 +35,7 @@ class YourTripsFragment : Fragment() {
         val viewModelFactory = YourTripsViewModelFactory(dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
-        val yourTripsViewModel =
-            ViewModelProviders.of(
+        val yourTripsViewModel = ViewModelProviders.of(
                 this, viewModelFactory).get(YourTripsViewModel::class.java)
 
         // To use the View Model with data binding, you have to explicitly

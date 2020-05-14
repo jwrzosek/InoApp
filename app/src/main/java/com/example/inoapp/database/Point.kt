@@ -14,7 +14,7 @@ data class Point(
     val pointId: Long = 0L,
 
     @ColumnInfo(name = "ownerTripId")
-    val ownerTripId: Long,
+    var ownerTripId: Long = 0L,
 
     @ColumnInfo(name = "latitude")
     val pointLatitude: Double,

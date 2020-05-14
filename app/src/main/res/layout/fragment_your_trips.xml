@@ -16,20 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-                android:id="@+id/your_trips_headline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/recycler_view_margin"
-                android:layout_marginEnd="@dimen/recycler_view_margin"
-                android:layout_marginTop="@dimen/recycler_view_margin"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:text="Pick a trip!"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/your_trips_list"
                 android:layout_width="0dp"
@@ -38,30 +24,12 @@
                 android:layout_marginBottom="@dimen/recycler_view_margin"
                 android:layout_marginStart="@dimen/recycler_view_margin"
                 android:layout_marginEnd="@dimen/recycler_view_margin"
-                app:layout_constraintBottom_toTopOf="@+id/yourTripsButton"
+                app:layout_constraintBottom_toTopOf="@+id/clearTripsButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/your_trips_headline"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-        <Button
-                android:id="@+id/yourTripsButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/fab_margin"
-                android:layout_marginEnd="@dimen/fab_margin"
-                android:layout_marginBottom="@dimen/fab_margin"
-                android:paddingStart="@dimen/fab_margin"
-                android:paddingEnd="@dimen/fab_margin"
-                android:text="Add new trip"
-                android:textColor="@color/colorAccent"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                android:onClick="@{() -> yourTripsViewModel.onStart()}"
-                app:layout_constraintBaseline_toBaselineOf="@id/clearTripsButton"
-                app:layout_constraintEnd_toStartOf="@+id/clearTripsButton"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"/>
         <Button
                 android:id="@+id/clearTripsButton"
                 android:layout_width="wrap_content"
@@ -71,13 +39,11 @@
                 android:layout_marginBottom="@dimen/fab_margin"
                 android:paddingStart="@dimen/fab_margin"
                 android:paddingEnd="@dimen/fab_margin"
-                android:text="Clear Trips"
-                android:textColor="@color/colorAccent"
-                android:textSize="10dp"
-                android:textStyle="bold"
+                android:text="@string/your_trips_clear_last_trip_button"
+                style="@style/Buttons"
                 android:onClick="@{() -> yourTripsViewModel.onClear()}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/yourTripsButton"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
 

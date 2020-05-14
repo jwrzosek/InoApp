@@ -42,21 +42,24 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     }*/
 
 
-
-    private suspend fun insertTrip(trip: Trip) : Long{
+    /** todo: delete later
+     */
+    /*private suspend fun insertTrip(trip: Trip) : Long{
         var tripId = 0L
         withContext(Dispatchers.IO) {
             tripId = database.insertTrip(trip)
             Log.d("YourTripsViewModel", "id = $tripId") // todo: delete when stop being needed for testing
         }
         return tripId
-    }
+    }*/
 
-    private suspend fun insertPointList(points: List<Point>) {
+    /** todo: delete later
+     */
+    /*private suspend fun insertPointList(points: List<Point>) {
         withContext(Dispatchers.IO) {
             database.insertPointList(points)
         }
-    }
+    }*/
 
     private suspend fun clear() {
         withContext(Dispatchers.IO) {
@@ -66,8 +69,9 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     /**
      * Executes when the Add New Trip button is clicked.
+     * todo: delete later
      */
-    fun onStart() {
+    /*fun onStart() {
         uiScope.launch {
 
             // Create a new trip with data from UI
@@ -101,7 +105,7 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
             insertPointList(points)
         }
-    }
+    }*/
 
     /**
      * Executes when the CLEAR button is clicked.

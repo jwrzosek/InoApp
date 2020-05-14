@@ -134,6 +134,7 @@
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
                     android:text="@string/add_new_point_add_new_point_button_text"
+                    android:onClick="@{() -> addNewTripViewModel.onAddNewPoint()}"
                     style="@style/Buttons"/>
 
             <!-- Buttons -->

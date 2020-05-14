@@ -61,7 +61,7 @@
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:gravity="top"
-                    android:text="@string/add_new_trip_number_of_points"/>
+                    android:text="@{@string/add_new_trip_number_of_points_format(addNewTripViewModel.numberOfPoints)}"/>
 
             <!-- Trip description -->
             <TextView
