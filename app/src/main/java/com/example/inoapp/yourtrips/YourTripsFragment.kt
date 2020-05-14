@@ -56,7 +56,7 @@ class YourTripsFragment : Fragment() {
             }
         })
 
-        //The complete onClickListener with Navigation
+        //The complete onClickListener with Navigation // todo: delete later if not needed
        /* binding.yourTripsButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_yourTripsFragment_to_homeFragment)
         }*/

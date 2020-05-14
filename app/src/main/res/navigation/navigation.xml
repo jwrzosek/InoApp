@@ -22,6 +22,9 @@
         <action android:id="@+id/action_yourTripsFragment_to_homeFragment" app:destination="@id/homeFragment"/>
     </fragment>
 
+    <fragment android:id="@+id/tripDetailsFragment" android:name="com.example.inoapp.yourtrips.TripDetailsFragment"
+              android:label="fragment_trip_details" tools:layout="@layout/fragment_trip_details"/>
+
     <navigation android:id="@+id/addNewTripNavigation" app:startDestination="@id/addNewTripFragment">
         <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.addnewtrip.AddNewTripFragment"
                   android:label="@string/title_add_new_trip" tools:layout="@layout/fragment_add_new_trip">
@@ -36,5 +39,7 @@
         <fragment android:id="@+id/mapFragment" android:name="com.example.inoapp.addnewtrip.MapFragment"
                   android:label="@string/title_add_new_point_location" tools:layout="@layout/fragment_map"/>
     </navigation>
+
+
 
 </navigation>
