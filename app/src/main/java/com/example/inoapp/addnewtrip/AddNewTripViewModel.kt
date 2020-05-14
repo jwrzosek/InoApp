@@ -155,21 +155,29 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     fun onAddNewPoint() {
         //todo: add checking if there are correct values
         //todo: consider using elvis operatopr ?: eg. wrongAnswer1.value ?: ""
-        val newPoint = Point(
-            pointLatitude = requireNotNull(_latitude.value),
-            pointLongitude = requireNotNull(_longitude.value),
-            pointDescription = requireNotNull(pointDescription.value),
-            pointQuestion = requireNotNull(pointQuestion.value),
-            rightAnswer = requireNotNull(rightAnswer.value),
-            wrongAnswer1 = requireNotNull(wrongAnswer1.value),
-            wrongAnswer2 = requireNotNull(wrongAnswer2.value)
-        )
+        if(pointQuestion.value != "" && rightAnswer.value != ""
+            && wrongAnswer1.value != "" && wrongAnswer2.value != "") {
 
-        points.add(newPoint)
-        Log.d("AddNewTripViewModel", "${pointDescription.value}") // todo; delete if not needed
-        addPointCleanUp()
-        increaseNumberOfPoints()
-        _navigateToAddNewTripFragment.value = true
+            val newPoint = Point(
+                pointLatitude = requireNotNull(_latitude.value),
+                pointLongitude = requireNotNull(_longitude.value),
+                pointDescription = requireNotNull(pointDescription.value),
+                pointQuestion = requireNotNull(pointQuestion.value),
+                rightAnswer = requireNotNull(rightAnswer.value),
+                wrongAnswer1 = requireNotNull(wrongAnswer1.value),
+                wrongAnswer2 = requireNotNull(wrongAnswer2.value)
+            )
+
+            points.add(newPoint)
+            Log.d("AddNewTripViewModel", "${pointDescription.value}") // todo; delete if not needed
+            addPointCleanUp()
+            increaseNumberOfPoints()
+            _navigateToAddNewTripFragment.value = true
+        }
+        else {
+            _showIncompleteDataToast.value = true
+            Log.d("AddNewTripViewModel", "You don't type trip information") // todo; changed into Toast or sth
+        }
     }
 
     /**

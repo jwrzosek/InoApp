@@ -6,17 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentAddNewPointBinding
-import com.example.inoapp.databinding.FragmentAddNewTripBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -65,6 +63,14 @@ class AddNewPointFragment : Fragment() {
             view.findNavController().navigateUp()
             // todo: add point action, remove if not needed
         }*/
+
+        // if data is incomplete then show Toast to user
+        viewModel.showIncompleteDataToast.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                Toast.makeText(application, "Complete your point information!", Toast.LENGTH_SHORT).show()
+                viewModel.doneShowingToast()
+            }
+        })
 
         binding.addNewPointAddLocationButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_addNewPointFragment_to_mapFragment)
