@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -46,7 +47,9 @@ class YourTripsFragment : Fragment() {
         // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this
 
-        val adapter = YourTripsAdapter()
+        val adapter = YourTripsAdapter(TripClickListener {tripId ->
+            Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+        })
         binding.yourTripsList.adapter = adapter
 
         yourTripsViewModel.trips.observe(viewLifecycleOwner, Observer {

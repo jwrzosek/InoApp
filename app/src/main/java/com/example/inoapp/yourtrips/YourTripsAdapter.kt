@@ -11,11 +11,10 @@ import com.example.inoapp.databinding.CardViewYourTripItemBinding
 /**
  * Adapter class for RecyclerView used in YourTripsFragment
  */
-class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTripsDiffCallback()) {
+class YourTripsAdapter(val clickListener: TripClickListener) : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTripsDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.bind(item)
+        holder.bind(getItem(position), clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,10 +23,10 @@ class YourTripsAdapter : ListAdapter<Trip, YourTripsAdapter.ViewHolder>(YourTrip
 
     class ViewHolder private constructor(val binding: CardViewYourTripItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Trip) {
-            //val res = holder.binding.context.resources
-            binding.tripItemTitle.text = item.tripTitle
-            binding.tripItemDescription.text = item.tripDescription
+        fun bind(item: Trip, clickListener: TripClickListener) {
+            binding.trip = item
+            binding.clickListener = clickListener
+            binding.executePendingBindings()
         }
 
         companion object {
@@ -54,6 +53,9 @@ class YourTripsDiffCallback : DiffUtil.ItemCallback<Trip>() {
 
 }
 
+class TripClickListener(val clickListener: (tripId: Long) -> Unit) {
+    fun onClick(trip: Trip) = clickListener(trip.tripId)
+}
 
 
 

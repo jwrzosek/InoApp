@@ -32,6 +32,7 @@
             <action android:id="@+id/action_addNewTripFragment_to_addNewPointFragment"
                     app:destination="@id/addNewPointFragment"/>
         </fragment>
+
         <fragment android:id="@+id/addNewPointFragment" android:name="com.example.inoapp.addnewtrip.AddNewPointFragment"
                   android:label="@string/title_add_new_point" tools:layout="@layout/fragment_add_new_point">
             <action android:id="@+id/action_addNewPointFragment_to_mapFragment" app:destination="@id/mapFragment"/>
@@ -39,7 +40,5 @@
         <fragment android:id="@+id/mapFragment" android:name="com.example.inoapp.addnewtrip.MapFragment"
                   android:label="@string/title_add_new_point_location" tools:layout="@layout/fragment_map"/>
     </navigation>
-
-
 
 </navigation>

@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/theme2ColorLight">
 
-    <TextView
-            android:id="@+id/trip_item_title"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Trip title" />
+        <TextView
+                android:id="@+id/trip_item_title"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Trip title" />
 
-    <TextView
-            android:id="@+id/trip_item_description"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintStart_toStartOf="@+id/trip_item_title"
-            app:layout_constraintTop_toBottomOf="@+id/trip_item_title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="Trip description" />
+        <TextView
+                android:id="@+id/trip_item_description"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="@+id/trip_item_title"
+                app:layout_constraintTop_toBottomOf="@+id/trip_item_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Trip description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

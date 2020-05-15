@@ -75,7 +75,6 @@ interface TripDatabaseDao {
      *
      * sorted by start time in descending order.
      */
-    @Transaction
     @Query("SELECT * FROM trips ORDER BY tripId DESC")
     fun getAllTrips(): LiveData<List<Trip>>
 
