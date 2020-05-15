@@ -77,37 +77,6 @@
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_description_content"/>
 
-        <!-- Trip number of points -->
-        <TextView
-                android:id="@+id/trip_details_number_of_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="@string/trip_details_number_of_points"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_description_separator" />
-
-        <TextView
-                android:id="@+id/trip_details_number_of_points_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toEndOf="@+id/trip_details_number_of_points"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
-
-        <View
-                android:id="@+id/trip_details_number_of_points_separator"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"/>
-
         <!-- Trip localization -->
         <TextView
                 android:id="@+id/trip_details_localization"
@@ -117,7 +86,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="@string/trip_details_trip_localization"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points_separator"/>
+                app:layout_constraintTop_toTopOf="@+id/trip_details_description_separator"/>
 
         <TextView
                 android:id="@+id/trip_details_localization_content"
@@ -128,6 +97,37 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toEndOf="@+id/trip_details_localization"
                 app:layout_constraintTop_toTopOf="@+id/trip_details_localization"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tripLocalization="@{tripDetailsViewModel.trip}"/>
+
+        <View
+                android:id="@+id/trip_details_localization_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/theme2ColorDark"
+                app:layout_constraintTop_toBottomOf="@+id/trip_details_localization_content"/>
+
+        <!-- Trip number of points -->
+        <TextView
+                android:id="@+id/trip_details_number_of_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/trip_details_number_of_points"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/trip_details_localization_separator" />
+
+        <TextView
+                android:id="@+id/trip_details_number_of_points_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toEndOf="@+id/trip_details_number_of_points"
+                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
 
