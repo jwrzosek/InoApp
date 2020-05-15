@@ -4,16 +4,26 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Data class representing database entity for a Trip.
+ */
 @Entity(tableName = "trips")
 data class Trip(
 
     @PrimaryKey(autoGenerate = true)
-    var tripId: Long = 0L,
+    @ColumnInfo(name = "tripId")
+    val tripId: Long = 0L,
 
     @ColumnInfo(name = "title")
-    var tripTitle: String = "Title",
+    val tripTitle: String,
 
     @ColumnInfo(name = "description")
-    var tripDescription: String = "Description"
+    val tripDescription: String,
+
+    @ColumnInfo(name = "tripLocalization")
+    val tripLocalization: String,
+
+    @ColumnInfo(name = "numberOfPoints")
+    val numberOfPoints: Int
 
 )

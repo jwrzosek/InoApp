@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Trip::class], version = 1, exportSchema = false)
+@Database(entities = [Trip::class, Point::class], version = 3, exportSchema = false)
 abstract class InoDatabase : RoomDatabase() {
 
     /**

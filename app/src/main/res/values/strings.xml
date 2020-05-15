@@ -16,7 +16,8 @@
     <string name="menu_contact">Contact Us</string>
 
     <!-- About strings -->
-    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to discover unknown, amazing
+    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to
+        discover unknown, amazing
         places and learn something about them solving quizzes and trying to get to the right location.
     </string>
 
@@ -26,8 +27,57 @@
     <string name="title_home_fragment">Ino App</string>
     <string name="title_add_new_trip">Add New Trip!</string>
     <string name="title_your_trips_fragment">Your Trips</string>
+    <string name="title_add_new_point">Add new point!</string>
+    <string name="title_add_new_point_location">Add point location!</string>
 
     <!-- Card view default strings -->
     <string name="card_view_title_default">Trip title</string>
     <string name="card_view_description_default">Trip description</string>
+
+    <!-- AddNewTripFragment layout strings -->
+    <string name="add_new_trip_trip_title">Trip title:</string>
+    <string name="add_new_trip_trip_title_hint">Enter trip title</string>
+    <string name="add_new_trip_trip_description">Trip description:</string>
+    <string name="add_new_trip_trip_description_hint">Enter trip description</string>
+    <string name="add_new_trip_trip_localization">Trip localization (e.g. Warsaw)</string>
+    <string name="add_new_trip_trip_localization_hint">Enter trip localization</string>
+    <string name="add_new_trip_number_of_points">Number of points: 0</string>
+    <string name="add_new_trip_points_added">Points added:</string>
+    <string name="add_new_trip_button_add_new_point">Add point</string>
+    <string name="add_new_trip_button_clear_last_point">Clear last point</string>
+    <string name="add_new_trip_button_add_new_trip">Add new trip!</string>
+    <string name="add_new_trip_number_of_points_format">Number of points: %d</string>
+
+    <!-- AddNewPointFragment layout strings -->
+    <string name="add_new_point_location_label">Point location:</string>
+    <string name="add_new_point_add_location_button_text">Add point location!</string>
+    <string name="add_new_point_add_description_label_text">Point description (optional):</string>
+    <string name="add_new_point_description_content_hint">Add point description</string>
+    <string name="add_new_point_add_question_label_text">Add quiz question and answers:</string>
+    <string name="add_new_point_question_hint">Question</string>
+    <string name="add_new_point_right_answer_hint">Right answer</string>
+    <string name="add_new_point_wrong_answer1_hint">Wrong answer 1</string>
+    <string name="add_new_point_wrong_answer2_hint">Wrong answer 2</string>
+    <string name="add_new_point_add_new_point_button_text">Add new point!</string>
+    <string name="add_new_point_back_button_text">Back to trip adding window</string>
+
+    <!-- YourTripsFragment layout strings -->
+    <string name="your_trips_clear_last_trip_button">Clear Last Trip</string>
+
+    <!-- TripDetailsFragment layout strings -->
+    <string name="trip_details_trip_title">Trip title:</string>
+    <string name="trip_details_trip_description">Trip description:</string>
+    <string name="trip_details_number_of_points">Number of points:</string>
+    <string name="trip_details_trip_localization">Localization:</string>
+
+    <!-- MapFragment layout strings -->
+    <string name="map_fragment_add_location">Add location</string>
+    <string name="coordinates_format">Coordinates:\nLat: %f, Long: %f</string>
+    <string name="dropped_pin">Point location</string>
+
+
+    <string name="title_activity_maps">Map</string>
+    <string name="title_trip_details_fragment">Trip details</string>
+
+
 </resources>

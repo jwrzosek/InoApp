@@ -18,7 +18,7 @@
                 android:icon="@drawable/ic_menu_trips"
                 android:title="@string/menu_your_trips"/>
         <item
-                android:id="@+id/addNewTripFragment"
+                android:id="@+id/addNewTripNavigation"
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_add"/>
     </group>
