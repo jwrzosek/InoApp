@@ -32,7 +32,7 @@
     </fragment>
 
     <fragment android:id="@+id/tripDetailsFragment" android:name="com.example.inoapp.tripdetails.TripDetailsFragment"
-              android:label="fragment_trip_details" tools:layout="@layout/fragment_trip_details">
+              android:label="@string/title_trip_details_fragment" tools:layout="@layout/fragment_trip_details">
         <argument
                 android:name="tripIdKey"
                 app:argType="long" />

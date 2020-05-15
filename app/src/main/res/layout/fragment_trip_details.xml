@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context="com.example.inoapp.yourtrips.TripDetailsFragment">
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<data>
-
+    <data>
         <variable
-                name="addNewTripViewModel"
-                type="com.example.inoapp.addnewtrip.AddNewTripViewModel" />
-    </data>-->
+                name="tripDetailsViewModel"
+                type="com.example.inoapp.tripdetails.TripDetailsViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/trip_details_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:context="com.example.inoapp.tripdetails.TripDetailsFragment">
 
+        <!-- Trip title -->
         <TextView
                 android:id="@+id/trip_details_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Trip title:"
+                android:text="@string/trip_details_trip_title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
                 android:id="@+id/trip_details_title_content"
@@ -33,9 +33,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Best trip ever!"
                 app:layout_constraintStart_toEndOf="@+id/trip_details_title"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_title" app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="@+id/trip_details_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tripTitle="@{tripDetailsViewModel.getTrip}"/>
 
         <View
                 android:id="@+id/trip_details_title_separator"
@@ -45,27 +46,28 @@
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_title_content"/>
 
+        <!-- Trip description -->
         <TextView
                 android:id="@+id/trip_details_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Trip description:"
+                android:text="@string/trip_details_trip_description"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_title_separator"
-        />
+                app:layout_constraintTop_toTopOf="@+id/trip_details_title_separator" />
 
         <TextView
                 android:id="@+id/trip_details_description_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Description Description Description Description Description"
                 app:layout_constraintStart_toEndOf="@+id/trip_details_description"
                 app:layout_constraintTop_toTopOf="@+id/trip_details_description"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tripDescription="@{tripDetailsViewModel.trip}"/>
 
         <View
                 android:id="@+id/trip_details_description_separator"
@@ -75,13 +77,14 @@
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_description_content"/>
 
+        <!-- Trip number of points -->
         <TextView
                 android:id="@+id/trip_details_number_of_points"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Number of points:"
+                android:text="@string/trip_details_number_of_points"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/trip_details_description_separator" />
 
@@ -90,11 +93,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="12"
                 app:layout_constraintStart_toEndOf="@+id/trip_details_number_of_points"
                 app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
 
         <View
                 android:id="@+id/trip_details_number_of_points_separator"
@@ -104,27 +108,28 @@
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"/>
 
+        <!-- Trip localization -->
         <TextView
                 android:id="@+id/trip_details_localization"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Localization:"
+                android:text="@string/trip_details_trip_localization"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points_separator"
-        />
+                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points_separator"/>
 
         <TextView
                 android:id="@+id/trip_details_localization_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Barcelona"
                 app:layout_constraintStart_toEndOf="@+id/trip_details_localization"
                 app:layout_constraintTop_toTopOf="@+id/trip_details_localization"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
