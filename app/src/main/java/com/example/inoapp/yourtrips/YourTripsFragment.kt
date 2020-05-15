@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentYourTripsBinding
@@ -47,11 +48,24 @@ class YourTripsFragment : Fragment() {
         // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this
 
+        // RecyclerView Adapter
         val adapter = YourTripsAdapter(TripClickListener {tripId ->
             Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+            yourTripsViewModel.onTripClicked(tripId)
         })
         binding.yourTripsList.adapter = adapter
 
+        yourTripsViewModel.navigateToTripDetail.observe(viewLifecycleOwner, Observer { tripId ->
+            tripId?.let {
+               this.findNavController().navigate(
+                   YourTripsFragmentDirections.actionYourTripsFragmentToTripDetailsFragment(tripId))
+                yourTripsViewModel.onTripDetailsNavigated()
+            }
+
+        })
+
+
+        // Observe if list displaying by RecyclerView has changed
         yourTripsViewModel.trips.observe(viewLifecycleOwner, Observer {
             it?.let {
                 // submitList() is a ListAdapter method to tell that a new version of a list is available

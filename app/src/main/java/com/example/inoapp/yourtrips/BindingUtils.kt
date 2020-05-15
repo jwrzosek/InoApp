@@ -11,11 +11,16 @@ import com.example.inoapp.database.Trip
  */
 
 @BindingAdapter("tripTitle")
-fun TextView.setTripTitle(item: Trip) {
-    text = item.tripTitle
+fun TextView.setTripTitle(item: Trip?) {
+    item?.let {
+        text = item.tripTitle
+    }
 }
 
 @BindingAdapter("tripDescription")
-fun TextView.setTripDescription(item: Trip) {
-    text = item.tripDescription
+fun TextView.setTripDescription(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        text = item.tripDescription
+    }
 }
