@@ -47,33 +47,33 @@ interface TripDatabaseDao {
     fun update(trip: Trip)
 
     /**
-     * Selects and returns the row that matches the supplied start time, which is our key.
-     *
-     * @param key startTimeMilli to match
+     * Selects and returns the row that matches id.
      */
-    @Query("SELECT * from trips WHERE tripId = :key")
+    @Query("SELECT * FROM trips WHERE tripId = :key")
     fun getTripById(key: Long): LiveData<Trip>
 
     /**
      * Deletes all values from the table.
-     *
      * This does not delete the table, only its contents.
      */
     @Query("DELETE FROM trips")
     fun clear()
 
     /**
-     * Deletes all values from the table.
-     *
-     * This does not delete the table, only its contents.
+     * Deletes last value from the table.
      */
     @Query("DELETE FROM trips WHERE tripId=(SELECT MAX(tripId) FROM trips)")
     fun deleteLastTrip()
 
     /**
+     * Deletes  row that matches id.
+     */
+    @Query("DELETE FROM trips WHERE tripId = :key")
+    fun deleteTripById(key: Long)
+
+    /**
      * Selects and returns all rows in the table,
-     *
-     * sorted by start time in descending order.
+     * sorted by id in descending order.
      */
     @Query("SELECT * FROM trips ORDER BY tripId DESC")
     fun getAllTrips(): LiveData<List<Trip>>

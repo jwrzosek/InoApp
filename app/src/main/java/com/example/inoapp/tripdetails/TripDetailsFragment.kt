@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentTripDetailsBinding
@@ -37,6 +39,13 @@ class TripDetailsFragment : Fragment() {
         binding.tripDetailsViewModel = tripDetailsViewModel
 
         binding.lifecycleOwner = this
+
+        tripDetailsViewModel.navigateToYourTrips.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                this.findNavController().navigateUp()
+                tripDetailsViewModel.doneNavigating()
+            }
+        })
 
         return binding.root
     }

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.inoapp.database.Trip
 import com.example.inoapp.database.TripDatabaseDao
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 
 class TripDetailsViewModel(
     private val tripIdKey: Long = 0L,
@@ -21,6 +21,8 @@ class TripDetailsViewModel(
      * viewModelJob allows us to cancel all coroutines started by this ViewModel.
      */
     private val viewModelJob = Job()
+
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val trip: LiveData<Trip>
 
@@ -39,14 +41,22 @@ class TripDetailsViewModel(
         _navigateToYourTrips.value = null
     }
 
+    private suspend fun deleteTrip(tripId: Long) {
+        withContext(Dispatchers.IO) {
+            database.deleteTripById(tripId)
+        }
+    }
     /** onClick() method for BackButton */
     fun onDelete() {
-        _navigateToYourTrips.value = true
-        // todo: remove trip logic
+        uiScope.launch {
+            // Clear the database table.
+            deleteTrip(tripIdKey)
+            _navigateToYourTrips.value = true
+        }
     }
 
     /** onClick() method for BackButton */
-    fun onClose() {
+    fun onBack() {
         _navigateToYourTrips.value = true
     }
 

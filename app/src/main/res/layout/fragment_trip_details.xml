@@ -13,6 +13,7 @@
             android:id="@+id/trip_details_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/theme2ColorLight"
             tools:context="com.example.inoapp.tripdetails.TripDetailsFragment">
 
         <!-- Trip title -->
@@ -130,6 +131,44 @@
                 app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/trip_details_start_trip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginEnd="@dimen/fab_margin"
+                app:srcCompat="@drawable/ic_trip_start_32dp"
+                app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/trip_details_delete_trip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/fab_margin"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> tripDetailsViewModel.onDelete()}"
+                app:srcCompat="@drawable/ic_trip_delete"
+                app:layout_constraintTop_toBottomOf="@+id/trip_details_start_trip_button"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/trip_details_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> tripDetailsViewModel.onBack()}"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/fab_margin"
+                app:srcCompat="@drawable/ic_trip_back"
+                app:layout_constraintTop_toBottomOf="@+id/trip_details_delete_trip_button"
+                app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
