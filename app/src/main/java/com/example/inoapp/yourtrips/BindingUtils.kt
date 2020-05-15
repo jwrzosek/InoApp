@@ -24,3 +24,19 @@ fun TextView.setTripDescription(item: Trip?) {
         text = item.tripDescription
     }
 }
+
+@BindingAdapter("tripLocalization")
+fun TextView.setTripLocalization(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        text = item.tripLocalization
+    }
+}
+
+@BindingAdapter("tripNumberOfPoints")
+fun TextView.setTripNumberOfPoints(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        text = item.numberOfPoints.toString()
+    }
+}

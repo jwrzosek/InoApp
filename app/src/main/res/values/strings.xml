@@ -39,6 +39,8 @@
     <string name="add_new_trip_trip_title_hint">Enter trip title</string>
     <string name="add_new_trip_trip_description">Trip description:</string>
     <string name="add_new_trip_trip_description_hint">Enter trip description</string>
+    <string name="add_new_trip_trip_localization">Trip localization (e.g. Warsaw)</string>
+    <string name="add_new_trip_trip_localization_hint">Enter trip localization</string>
     <string name="add_new_trip_number_of_points">Number of points: 0</string>
     <string name="add_new_trip_points_added">Points added:</string>
     <string name="add_new_trip_button_add_new_point">Add point</string>
@@ -62,7 +64,11 @@
     <!-- YourTripsFragment layout strings -->
     <string name="your_trips_clear_last_trip_button">Clear Last Trip</string>
 
-
+    <!-- TripDetailsFragment layout strings -->
+    <string name="trip_details_trip_title">Trip title:</string>
+    <string name="trip_details_trip_description">Trip description:</string>
+    <string name="trip_details_number_of_points">Number of points:</string>
+    <string name="trip_details_trip_localization">Localization:</string>
 
     <!-- MapFragment layout strings -->
     <string name="map_fragment_add_location">Add location</string>
@@ -71,7 +77,7 @@
 
 
     <string name="title_activity_maps">Map</string>
-
+    <string name="title_trip_details_fragment">Trip details</string>
 
 
 </resources>

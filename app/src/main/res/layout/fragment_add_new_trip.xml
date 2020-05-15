@@ -53,6 +53,22 @@
                     android:hint="@string/add_new_trip_trip_description_hint"
                     android:text="@={addNewTripViewModel.tripDescription}"/>
 
+            <!-- Trip localization -->
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="top"
+                    android:text="@string/add_new_trip_trip_localization"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textCapSentences|textMultiLine"
+                    android:hint="@string/add_new_trip_trip_localization_hint"
+                    android:text="@={addNewTripViewModel.tripLocalization}"/>
+
             <!-- Number of points text view -->
             <TextView
                     android:layout_width="match_parent"

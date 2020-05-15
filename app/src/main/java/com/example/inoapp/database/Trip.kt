@@ -18,6 +18,12 @@ data class Trip(
     val tripTitle: String,
 
     @ColumnInfo(name = "description")
-    val tripDescription: String
+    val tripDescription: String,
+
+    @ColumnInfo(name = "tripLocalization")
+    val tripLocalization: String,
+
+    @ColumnInfo(name = "numberOfPoints")
+    val numberOfPoints: Int
 
 )

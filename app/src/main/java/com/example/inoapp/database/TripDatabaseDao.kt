@@ -52,7 +52,7 @@ interface TripDatabaseDao {
      * @param key startTimeMilli to match
      */
     @Query("SELECT * from trips WHERE tripId = :key")
-    fun get(key: Long): Trip?
+    fun getTripById(key: Long): LiveData<Trip>
 
     /**
      * Deletes all values from the table.

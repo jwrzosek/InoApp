@@ -80,6 +80,8 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     val tripDescription = MutableLiveData<String>()
 
+    val tripLocalization = MutableLiveData<String>()
+
     private val _numberOfPoints = MutableLiveData<Int>()
     val numberOfPoints: LiveData<Int>
         get() = _numberOfPoints
@@ -91,6 +93,7 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
         _numberOfPoints.value = 0
         tripTitle.value = ""
         tripDescription.value = ""
+        tripLocalization.value = ""
         addPointCleanUp()
         Log.d("AddNewTripViewModel", "AddNewTripViewModel was created!") // todo: delete when stop being needed for testing
     }
@@ -128,9 +131,12 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
                 // Create a new trip, with random title,
                 // and insert it into the database.
+                // todo: consider using elvis operatopr ?: eg. wrongAnswer1.value ?: ""
                 val newTrip = Trip(
                     tripTitle = requireNotNull(tripTitle.value),
-                    tripDescription = requireNotNull(tripDescription.value)
+                    tripDescription = requireNotNull(tripDescription.value),
+                    tripLocalization = requireNotNull(tripLocalization.value),
+                    numberOfPoints = requireNotNull(_numberOfPoints.value)
                 )
 
                 // todo: add correct trip with points inserting
