@@ -64,7 +64,6 @@ class YourTripsFragment : Fragment() {
 
         })
 
-
         // Observe if list displaying by RecyclerView has changed
         yourTripsViewModel.trips.observe(viewLifecycleOwner, Observer {
             it?.let {

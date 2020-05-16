@@ -1,5 +1,10 @@
 package com.example.inoapp.tripdetails
 
+import android.app.Activity
+import android.app.Application
+import android.content.Context
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,13 +37,19 @@ class TripDetailsViewModel(
     val navigateToYourTrips: LiveData<Boolean?>
         get() = _navigateToYourTrips
 
+    private val _navigateToHomeScreen = MutableLiveData<Boolean?>()
+    val navigateToHomeScreen: LiveData<Boolean?>
+        get() = _navigateToHomeScreen
+
     init {
         trip = database.getTripById(tripIdKey)
+        Log.d("TripDetailsViewModel", "TripDetailsViewModel created!")
     }
 
     /** Call this after navigation */
     fun doneNavigating() {
         _navigateToYourTrips.value = null
+        _navigateToHomeScreen.value = null
     }
 
     private suspend fun deleteTrip(tripId: Long) {
@@ -49,8 +60,12 @@ class TripDetailsViewModel(
 
     /** onClick() method for Start Trip Button */
     fun onStartTrip() {
-        _navigateToYourTrips.value = true
-        // todo: add start trip logic
+        _navigateToHomeScreen.value = true
+        // When observer in TripDetailsFragment observe _navigateToHomeScreen change
+        // invoke a function saveTripIdInSharedPreferences() from  TripDetailsFragment
+        // which saves id of started trip in SharedPreferences for later use in
+        // HomeFragment, so here we only change _navigateToHomeScreen value to true
+        // note: SharedPreferences needs activity reference so this save is happening in Fragment
     }
 
     /** onClick() method for DeleteButton */
@@ -71,6 +86,7 @@ class TripDetailsViewModel(
     /** Cancels all coroutines when the ViewModel is cleared, to cleanup any pending work. */
     override fun onCleared() {
         super.onCleared()
+        Log.d("TripDetailsViewModel", "TripDetailsViewModel destroyed!")
         viewModelJob.cancel()
     }
 }

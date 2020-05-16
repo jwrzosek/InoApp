@@ -1,14 +1,15 @@
-package com.example.inoapp
+package com.example.inoapp.home
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import com.example.inoapp.R
 import com.example.inoapp.databinding.FragmentHomeBinding
 
 /**
@@ -22,13 +23,11 @@ class HomeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentHomeBinding>(inflater,
             R.layout.fragment_home,container,false)
 
-        //The complete onClickListener with Navigation
-        binding.playButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_tripListFragment)
-        }
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return view
+        val tripId = sharedPref.getLong(getString(R.string.saved_trip_id), 0L)
+
+        Toast.makeText(context, "Shared preferences id: $tripId", Toast.LENGTH_LONG).show()
 
         return binding.root
     }
 }
-// Setting the support action bar title
-//(activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_home_fragment)

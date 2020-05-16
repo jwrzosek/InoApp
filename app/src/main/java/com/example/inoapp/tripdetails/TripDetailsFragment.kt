@@ -1,6 +1,8 @@
 package com.example.inoapp.tripdetails
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +32,7 @@ class TripDetailsFragment : Fragment() {
 
         // Create an instance of the ViewModel Factory.
         val dataSource = InoDatabase.getInstance(application).tripDatabaseDao
-        val viewModelFactory = TripDetailsViewModelFactory(arguments.tripIdKey ,dataSource)
+        val viewModelFactory = TripDetailsViewModelFactory(arguments.tripIdKey, dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
         val tripDetailsViewModel = ViewModelProviders.of(
@@ -40,6 +42,16 @@ class TripDetailsFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
+        // observer for navigateToHome flag which mean user click start trip button
+        tripDetailsViewModel.navigateToHomeScreen.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                this.findNavController().navigate(R.id.action_tripDetailsFragment_to_homeFragment)
+                saveTripIdInSharedPreferences(arguments.tripIdKey)
+                tripDetailsViewModel.doneNavigating()
+            }
+        })
+
+        // observer for navigateToYourTrips flag which mean user click back button
         tripDetailsViewModel.navigateToYourTrips.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigateUp()
@@ -49,4 +61,20 @@ class TripDetailsFragment : Fragment() {
 
         return binding.root
     }
+
+    /**
+     * Since, saving data to SharedReferences needs activity reference so
+     * this action is provided in saveTripIdInSharedPreferences() method
+     * inside TripDetailsFragment.
+     */
+    private fun saveTripIdInSharedPreferences(tripId: Long) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putLong(getString(R.string.saved_trip_id), tripId)
+            apply()
+        }
+        Log.d("TripDetailsFragment", "saveTripIdInSharedPreferences with id=$tripId")
+    }
+
+
 }
