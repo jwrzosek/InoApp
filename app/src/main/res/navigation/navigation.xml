@@ -7,6 +7,12 @@
     <fragment android:id="@+id/homeFragment" android:name="com.example.inoapp.home.HomeFragment"
               android:label="@string/title_home_fragment" tools:layout="@layout/fragment_home">
         <action android:id="@+id/action_homeFragment_to_tripListFragment" app:destination="@id/tripListFragment"/>
+        <action
+                android:id="@+id/action_homeFragment_to_yourTripsFragment"
+                app:destination="@id/yourTripsFragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_aboutFragment"
+                app:destination="@id/aboutFragment" />
 
     </fragment>
 

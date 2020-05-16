@@ -11,8 +11,8 @@
     <!-- Basic styling for the buttons. -->
     <style name="Buttons" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:background">@color/theme2ColorLight</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/home_buttons_background</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
