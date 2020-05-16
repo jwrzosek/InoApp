@@ -46,8 +46,15 @@ class TripDetailsViewModel(
             database.deleteTripById(tripId)
         }
     }
-    /** onClick() method for BackButton */
-    fun onDelete() {
+
+    /** onClick() method for Start Trip Button */
+    fun onStartTrip() {
+        _navigateToYourTrips.value = true
+        // todo: add start trip logic
+    }
+
+    /** onClick() method for DeleteButton */
+    fun onDeleteTrip() {
         uiScope.launch {
             // Clear the database table.
             deleteTrip(tripIdKey)

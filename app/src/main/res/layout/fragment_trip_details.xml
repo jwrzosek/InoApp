@@ -16,12 +16,19 @@
             android:background="@color/theme2ColorLight"
             tools:context="com.example.inoapp.tripdetails.TripDetailsFragment">
 
+        <View
+                android:id="@+id/trip_details_top_separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/theme2ColorDark"
+                app:layout_constraintTop_toTopOf="parent"/>
         <!-- Trip title -->
         <TextView
                 android:id="@+id/trip_details_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
+                android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="@string/trip_details_trip_title"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +49,7 @@
         <View
                 android:id="@+id/trip_details_title_separator"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_title_content"/>
@@ -73,7 +80,7 @@
         <View
                 android:id="@+id/trip_details_description_separator"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_description_content"/>
@@ -104,7 +111,7 @@
         <View
                 android:id="@+id/trip_details_localization_separator"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="16dp"
                 android:background="@color/theme2ColorDark"
                 app:layout_constraintTop_toBottomOf="@+id/trip_details_localization_content"/>
@@ -132,43 +139,53 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
 
+        <View
+                android:id="@+id/trip_details_number_of_points_separator"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/theme2ColorDark"
+                app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"/>
+
+        <!-- Buttons -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/trip_details_start_trip_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="32dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginTop="@dimen/fab_margin"
-                android:layout_marginEnd="@dimen/fab_margin"
-                app:srcCompat="@drawable/ic_trip_start_32dp"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:onClick="@{() -> tripDetailsViewModel.onStartTrip()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_trip_start_32dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/trip_details_delete_trip_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/fab_margin"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="48dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:onClick="@{() -> tripDetailsViewModel.onDelete()}"
-                app:srcCompat="@drawable/ic_trip_delete"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_start_trip_button"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:onClick="@{() -> tripDetailsViewModel.onDeleteTrip()}"
+                app:layout_constraintEnd_toStartOf="@+id/trip_details_start_trip_button"
+                app:layout_constraintStart_toEndOf="@+id/trip_details_back_button"
+                app:layout_constraintTop_toTopOf="@+id/trip_details_start_trip_button"
+                app:srcCompat="@drawable/ic_trip_delete" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/trip_details_back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:onClick="@{() -> tripDetailsViewModel.onBack()}"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="@dimen/fab_margin"
-                app:srcCompat="@drawable/ic_trip_back"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_delete_trip_button"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/trip_details_start_trip_button"
+                app:srcCompat="@drawable/ic_trip_back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

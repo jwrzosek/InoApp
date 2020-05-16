@@ -66,7 +66,7 @@
 
     <!-- TripDetailsFragment layout strings -->
     <string name="trip_details_trip_title">Trip title:</string>
-    <string name="trip_details_trip_description">Trip\ndescription:</string>
+    <string name="trip_details_trip_description">Trip description:</string>
     <string name="trip_details_number_of_points">Number of points:</string>
     <string name="trip_details_trip_localization">Localization:</string>
 
