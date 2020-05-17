@@ -31,6 +31,7 @@
     <string name="title_add_new_point">Add new point!</string>
     <string name="title_add_new_point_location">Add point location!</string>
     <string name="title_trip_details_fragment">Trip details</string>
+    <string name="title_game_fragment">Let\'s play</string>
 
     <!-- Card view default strings -->
     <string name="card_view_title_default">Trip title</string>
@@ -86,6 +87,7 @@
     <string name="home_trip_list_button_text">See all available trips</string>
     <string name="home_add_new_trip_button_text">Add new trip</string>
     <string name="home_about_button_text">About InoApp</string>
+    <string name="home_game_button_text">Go to your game</string>
 
     <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
@@ -93,7 +95,6 @@
 
 
     <string name="title_activity_maps">Map</string>
-
 
 
 </resources>

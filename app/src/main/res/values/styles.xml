@@ -16,4 +16,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Styling for highlighted buttons. -->
+    <style name="highlightedButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/theme2ColorLight</item>
+        <item name="android:background">@drawable/highlighted_buttons_background</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
