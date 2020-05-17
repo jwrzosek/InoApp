@@ -1,4 +1,4 @@
-package com.example.inoapp
+package com.example.inoapp.alltrips
 
 
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.inoapp.R
 import com.example.inoapp.databinding.FragmentTripListBinding
 
 

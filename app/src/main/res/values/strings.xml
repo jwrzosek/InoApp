@@ -20,6 +20,7 @@
         discover unknown, amazing
         places and learn something about them solving quizzes and trying to get to the right location.
     </string>
+    <string name="about_app_logo_image_content_description">App logo image</string>
 
     <!-- Titles of fragments supportActionBars  -->
     <string name="title_about_fragment">About Us</string>
@@ -29,6 +30,8 @@
     <string name="title_your_trips_fragment">Your Trips</string>
     <string name="title_add_new_point">Add new point!</string>
     <string name="title_add_new_point_location">Add point location!</string>
+    <string name="title_trip_details_fragment">Trip details</string>
+    <string name="title_game_fragment">Let\'s play</string>
 
     <!-- Card view default strings -->
     <string name="card_view_title_default">Trip title</string>
@@ -75,9 +78,23 @@
     <string name="coordinates_format">Coordinates:\nLat: %f, Long: %f</string>
     <string name="dropped_pin">Point location</string>
 
+    <!-- HomeFragment layout string -->
+    <string name="home_welcome_banner">Welcome to InoApp!</string>
+    <string name="home_any_trip_text">It seems like you don\'t started any trip yet…</string>
+    <string name="home_select_trip_text">Select one from your trips or see all of them in the main list ;-)</string>
+    <string name="home_logo_image_content_description">Home logo image</string>
+    <string name="home_your_trips_button_text">Select trip from your list</string>
+    <string name="home_trip_list_button_text">See all available trips</string>
+    <string name="home_add_new_trip_button_text">Add new trip</string>
+    <string name="home_about_button_text">About InoApp</string>
+    <string name="home_game_button_text">Go to your game</string>
+
+    <!-- SharedPreferences keys -->
+    <string name="saved_trip_id">tripId</string>
+    <string name="saved_number_of_last_point">numberOfLastPoint</string>
+
 
     <string name="title_activity_maps">Map</string>
-    <string name="title_trip_details_fragment">Trip details</string>
 
 
 </resources>

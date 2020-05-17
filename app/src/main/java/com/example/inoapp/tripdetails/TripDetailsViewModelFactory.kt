@@ -1,5 +1,8 @@
 package com.example.inoapp.tripdetails
 
+import android.app.Activity
+import android.app.Application
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.inoapp.database.TripDatabaseDao

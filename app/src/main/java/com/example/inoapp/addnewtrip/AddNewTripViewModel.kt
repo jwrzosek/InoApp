@@ -126,7 +126,8 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
      * Executes when the add_new_trip_add_button is clicked.
      */
     fun onAddNewTrip() {
-        if(tripTitle.value != "" && tripDescription.value != "") {
+        if(tripTitle.value != "" && tripDescription.value != ""
+            && tripLocalization.value != "") {
             uiScope.launch {
 
                 // Create a new trip, with random title,
