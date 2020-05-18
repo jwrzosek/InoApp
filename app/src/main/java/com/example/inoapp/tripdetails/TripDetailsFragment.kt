@@ -75,6 +75,4 @@ class TripDetailsFragment : Fragment() {
         }
         Log.d("TripDetailsFragment", "saveTripIdInSharedPreferences with id=$tripId")
     }
-
-
 }

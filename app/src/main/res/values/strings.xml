@@ -93,8 +93,14 @@
     <string name="saved_trip_id">tripId</string>
     <string name="saved_number_of_last_point">numberOfLastPoint</string>
 
+    <!-- BindingUtils strings-->
+    <string name="game_point_format">Point %d of %d</string>
+
 
     <string name="title_activity_maps">Map</string>
+    <string name="saved_current_point_index">currentPointIndex</string>
+    <string name="saved_first_point_latitude">firstPointLatitude</string>
+    <string name="saved_first_point_longitude">firstPointLongitude</string>
 
 
 </resources>

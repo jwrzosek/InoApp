@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.inoapp.database.Point
 
 class HomeViewModel(
     tripId: Long = 0L) : ViewModel() {
@@ -44,10 +45,9 @@ class HomeViewModel(
         else View.VISIBLE
     }
 
-
     init {
         _selectedTripId.value = tripId
-        Log.d("HomeViewModel", "HomeViewModel destroyed!") // todo: delete if not needed
+        Log.d("HomeViewModel", "HomeViewModel created!") // todo: delete if not needed
     }
 
     /** onClick() method for goToYourTrips */
