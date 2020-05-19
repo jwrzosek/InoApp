@@ -2,6 +2,7 @@ package com.example.inoapp.yourtrips
 
 import android.location.Location
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.inoapp.R
@@ -114,6 +115,51 @@ fun MapView.setGoogleMapsMarkerForGame(item: Point?) {
         }
     }
 }
+
+
+// Binding Adapters for Quiz
+
+@BindingAdapter("pointDescriptionForQuiz")
+fun TextView.setPointDescriptionForQuiz(item: Point?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Point description:\n${item.pointDescription}"
+        text = stringFormatted
+    }
+}
+@BindingAdapter("questionForQuiz")
+fun TextView.setQuestionForQuiz(item: Point?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Question:\n${item.pointQuestion}"
+        text = stringFormatted
+    }
+}
+
+@BindingAdapter(value=["answerForQuiz:item", "answerForQuiz:whichButton"], requireAll = true)
+fun Button.setAnswerForQuiz(item: Point?, whichButton: Int) {
+    // null check because LiveData starts as a null
+    item?.let {
+        text = when (whichButton) {
+            0 -> {
+                item.rightAnswer
+            }
+            1 -> {
+                item.wrongAnswer1
+            }
+            2 -> {
+                item.wrongAnswer2
+            }
+            else -> {
+                "blad"
+            }
+        }
+    }
+}
+
+
+
+
 
 
 

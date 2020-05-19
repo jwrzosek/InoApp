@@ -32,6 +32,7 @@
     <string name="title_add_new_point_location">Add point location!</string>
     <string name="title_trip_details_fragment">Trip details</string>
     <string name="title_game_fragment">Let\'s play</string>
+    <string name="title_quiz">Quiz</string>
 
     <!-- Card view default strings -->
     <string name="card_view_title_default">Trip title</string>
@@ -80,7 +81,7 @@
 
     <!-- HomeFragment layout string -->
     <string name="home_welcome_banner">Welcome to InoApp!</string>
-    <string name="home_any_trip_text">It seems like you don\'t started any trip yet…</string>
+    <string name="home_any_trip_text">It seems like you didn\'t started any trip yet…</string>
     <string name="home_select_trip_text">Select one from your trips or see all of them in the main list ;-)</string>
     <string name="home_logo_image_content_description">Home logo image</string>
     <string name="home_your_trips_button_text">Select trip from your list</string>
@@ -92,15 +93,16 @@
     <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
     <string name="saved_number_of_last_point">numberOfLastPoint</string>
+    <string name="saved_current_point_index">currentPointIndex</string>
 
     <!-- BindingUtils strings-->
     <string name="game_point_format">Point %d of %d</string>
 
 
     <string name="title_activity_maps">Map</string>
-    <string name="saved_current_point_index">currentPointIndex</string>
-    <string name="saved_first_point_latitude">firstPointLatitude</string>
-    <string name="saved_first_point_longitude">firstPointLongitude</string>
+
+
+
 
 
 </resources>
