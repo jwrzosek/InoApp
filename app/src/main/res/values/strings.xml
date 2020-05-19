@@ -68,12 +68,6 @@
     <!-- YourTripsFragment layout strings -->
     <string name="your_trips_clear_last_trip_button">Clear Last Trip</string>
 
-    <!-- TripDetailsFragment layout strings -->
-    <string name="trip_details_trip_title">Trip title:</string>
-    <string name="trip_details_trip_description">Trip description:</string>
-    <string name="trip_details_number_of_points">Number of points:</string>
-    <string name="trip_details_trip_localization">Localization:</string>
-
     <!-- MapFragment layout strings -->
     <string name="map_fragment_add_location">Add location</string>
     <string name="coordinates_format">Coordinates:\nLat: %f, Long: %f</string>
@@ -90,6 +84,10 @@
     <string name="home_about_button_text">About InoApp</string>
     <string name="home_game_button_text">Go to your game</string>
 
+    <!-- GameFragment layout string -->
+    <string name="game_toggle_view_button_text">Toggle View</string>
+    <string name="game_end_trip_button_text">End trip</string>
+
     <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
     <string name="saved_trip_number_of_points">tripNumberOfPoints</string>
@@ -98,8 +96,6 @@
     <!-- BindingUtils strings-->
     <string name="game_point_format">Point %d of %d</string>
 
-
     <string name="title_activity_maps">Map</string>
-
 
 </resources>

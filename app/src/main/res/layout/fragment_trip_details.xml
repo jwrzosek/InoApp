@@ -13,139 +13,99 @@
             android:id="@+id/trip_details_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/theme2ColorLight"
             tools:context="com.example.inoapp.tripdetails.TripDetailsFragment">
 
-        <View
-                android:id="@+id/trip_details_top_separator"
+        <androidx.cardview.widget.CardView
+                android:id="@+id/trip_details_card_view"
+                android:foreground="@drawable/trip_details_card_view_border"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="0dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toTopOf="parent"/>
-        <!-- Trip title -->
-        <TextView
-                android:id="@+id/trip_details_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="@string/trip_details_trip_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/card_view_spacing"
+                app:cardBackgroundColor="@color/theme2ColorLight"
+                app:cardCornerRadius="@dimen/trip_details_card_radius"
+                app:cardElevation="4dp"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-                android:id="@+id/trip_details_title_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toEndOf="@+id/trip_details_title"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tripTitle="@{tripDetailsViewModel.getTrip}"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/trip_details_card_view_constraint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <View
-                android:id="@+id/trip_details_title_separator"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_title_content"/>
+                <!-- Trip title -->
+                <TextView
+                        android:id="@+id/trip_details_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tripTitleForGame="@{tripDetailsViewModel.trip}"/>
 
-        <!-- Trip description -->
-        <TextView
-                android:id="@+id/trip_details_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="@string/trip_details_trip_description"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_title_separator" />
+                <View
+                        android:id="@+id/trip_details_title_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/theme2ColorDark"
+                        app:layout_constraintTop_toBottomOf="@+id/trip_details_title"/>
 
-        <TextView
-                android:id="@+id/trip_details_description_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toEndOf="@+id/trip_details_description"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tripDescription="@{tripDetailsViewModel.trip}"/>
+                <!-- Trip description -->
+                <TextView
+                        android:id="@+id/trip_details_description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/trip_details_title_separator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tripDescriptionForGame="@{tripDetailsViewModel.trip}"/>
 
-        <View
-                android:id="@+id/trip_details_description_separator"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_description_content"/>
+                <View
+                        android:id="@+id/trip_details_description_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/theme2ColorDark"
+                        app:layout_constraintTop_toBottomOf="@+id/trip_details_description"/>
 
-        <!-- Trip localization -->
-        <TextView
-                android:id="@+id/trip_details_localization"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="@string/trip_details_trip_localization"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_description_separator"/>
+                <!-- Trip localization -->
+                <TextView
+                        android:id="@+id/trip_details_localization"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/trip_details_description_separator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tripLocalizationForDetails="@{tripDetailsViewModel.trip}"/>
 
-        <TextView
-                android:id="@+id/trip_details_localization_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toEndOf="@+id/trip_details_localization"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_localization"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tripLocalization="@{tripDetailsViewModel.trip}"/>
+                <View
+                        android:id="@+id/trip_details_localization_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/theme2ColorDark"
+                        app:layout_constraintTop_toBottomOf="@+id/trip_details_localization"/>
 
-        <View
-                android:id="@+id/trip_details_localization_separator"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_localization_content"/>
+                <!-- Trip number of points -->
+                <TextView
+                        android:id="@+id/trip_details_number_of_points"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/trip_details_localization_separator"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tripNumberOfPointsForDetails="@{tripDetailsViewModel.trip}"/>
 
-        <!-- Trip number of points -->
-        <TextView
-                android:id="@+id/trip_details_number_of_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="@string/trip_details_number_of_points"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_localization_separator" />
-
-        <TextView
-                android:id="@+id/trip_details_number_of_points_content"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toEndOf="@+id/trip_details_number_of_points"
-                app:layout_constraintTop_toTopOf="@+id/trip_details_number_of_points"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tripNumberOfPoints="@{tripDetailsViewModel.trip}"/>
-
-        <View
-                android:id="@+id/trip_details_number_of_points_separator"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/theme2ColorDark"
-                app:layout_constraintTop_toBottomOf="@+id/trip_details_number_of_points_content"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+         </androidx.cardview.widget.CardView>
 
         <!-- Buttons -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton

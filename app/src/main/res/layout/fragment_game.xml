@@ -12,10 +12,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/homeConstraint"
-            android:background="@android:color/background_light"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
         <View
                 android:id="@+id/game_top_separator"
@@ -106,7 +104,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/game_number_of_points_separator" />
 
-
         <View
                 android:id="@+id/game_point_description_separator"
                 android:layout_width="match_parent"
@@ -139,7 +136,6 @@
                 app:layout_constraintBottom_toTopOf="@+id/game_toggle_view_button"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-
         <!-- Buttons -->
         <Button
                 android:id="@+id/game_toggle_view_button"
@@ -149,7 +145,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginEnd="12dp"
-                android:text="Toggle View"
+                android:text="@string/game_toggle_view_button_text"
                 android:onClick="@{() -> gameViewModel.onToggleView()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +159,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="12dp"
-                android:text="Clear shared preferences"
+                android:text="@string/game_end_trip_button_text"
                 android:visibility="@{gameViewModel.infoVisible}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -173,14 +169,14 @@
                 android:id="@+id/game_start_quiz_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginBottom="24dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="@{gameViewModel.startQuizButtonVisible}"
                 android:onClick="@{() -> gameViewModel.onStartQuiz()}"
                 app:srcCompat="@drawable/ic_start_quiz"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/point_localization_map_view" />
 
 

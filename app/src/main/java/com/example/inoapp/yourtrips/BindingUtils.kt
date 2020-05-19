@@ -83,6 +83,23 @@ fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
     }
 }
 
+@BindingAdapter("tripLocalizationForDetails")
+fun TextView.setTripLocalizationForDetails(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Trip localization:\n${item.tripLocalization}"
+        text = stringFormatted
+    }
+}
+
+@BindingAdapter("tripNumberOfPointsForDetails")
+fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Trip localization:\n${item.numberOfPoints}"
+        text = stringFormatted
+    }
+}
 
 @BindingAdapter("pointDescriptionForGame")
 fun TextView.setPointDescriptionForGame(item: Point?) {
