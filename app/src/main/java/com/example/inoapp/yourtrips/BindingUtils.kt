@@ -75,7 +75,7 @@ fun TextView.setTripDescriptionForGame(item: Trip?) {
     }
 }
 
-@BindingAdapter(value=["tripWhichPointForGame:item", "tripWhichPointForGame:currentIndex"], requireAll = true)
+@BindingAdapter(value=["item", "currentIndex"], requireAll = true)
 fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
     // null check because LiveData starts as a null
     item?.let {
@@ -156,7 +156,7 @@ fun TextView.setQuestionForQuiz(item: Point?) {
     }
 }
 
-@BindingAdapter(value=["answerForQuiz:item", "answerForQuiz:whichButton"], requireAll = true)
+@BindingAdapter(value=["item", "whichButton"], requireAll = true)
 fun Button.setAnswerForQuiz(item: Point?, whichButton: Int) {
     // null check because LiveData starts as a null
     item?.let {
