@@ -2,6 +2,7 @@ package com.example.inoapp.quiz
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,8 @@ class QuizFragment : Fragment(){
         // Read tripId from SharedPreferences
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return view
         val tripId = sharedPref.getLong(getString(R.string.saved_trip_id), 0L)
-        val currentPointIndex = 0 //sharedPref.getInt(getString(R.string.saved_current_point_index), 0)
+        val currentPointIndex = sharedPref.getInt(getString(R.string.saved_current_point_index), 0)
+        val tripNumberOfPoints = sharedPref.getInt(getString(R.string.saved_trip_number_of_points), 0)
 
         // view Model
         val application = requireNotNull(this.activity).application
@@ -45,8 +47,17 @@ class QuizFragment : Fragment(){
         // add observer for navigateBackToGame flag
         quizViewModel.navigateBackToGame.observe(viewLifecycleOwner, Observer {
             if(it == true) {
-                this.findNavController().navigateUp()
-                quizViewModel.doneNavigating()
+
+                // todo: update point current index with right condition
+                if (currentPointIndex < (tripNumberOfPoints - 1)){
+                    updateCurrentPointIndexInSharedPreferences(currentPointIndex)
+                    this.findNavController().navigateUp()
+                    quizViewModel.doneNavigating()
+                } else {
+                    Toast.makeText(context, "You end this trip!\nCongratulations!", Toast.LENGTH_LONG).show()
+                    //todo: end of trip, clear sheardprefs and navigate to home fragment
+                }
+
             }
         })
 
@@ -55,7 +66,6 @@ class QuizFragment : Fragment(){
             if(it == true) {
                 Toast.makeText(context, "Right answer!\nClick back button and keep exploring!", Toast.LENGTH_LONG).show()
                 quizViewModel.doneShowingToast()
-                // todo: update point current index
             }
         })
 
@@ -68,5 +78,14 @@ class QuizFragment : Fragment(){
         })
 
         return binding.root
+    }
+
+    private fun updateCurrentPointIndexInSharedPreferences(nextIndex: Int) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putInt(getString(R.string.saved_current_point_index), nextIndex+1)
+            apply()
+        }
+        Log.d("QuizFragment", "saveTripIdInSharedPreferences with id=${nextIndex+1}")
     }
 }

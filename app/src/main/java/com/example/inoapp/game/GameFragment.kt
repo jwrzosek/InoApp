@@ -41,6 +41,8 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
 
     private lateinit var googleMap: GoogleMap
 
+    private lateinit var gameViewModel: GameViewModel
+
     private val REQUEST_LOCATION_PERMISSION = 1
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -77,6 +79,9 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
     override fun onResume() {
         super.onResume()
         startLocationUpdates()
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        val currentPointIndex = sharedPref.getInt(getString(R.string.saved_current_point_index), 0)
+        gameViewModel.updateCurrentPointIndex(currentPointIndex)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -96,7 +101,7 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         val viewModelFactory = GameViewModelFactory(tripId, currentPointIndex, dataSource)
 
         // Get a reference to the ViewModel associated with this fragment.
-        val gameViewModel = ViewModelProviders.of(
+        gameViewModel = ViewModelProviders.of(
             this, viewModelFactory).get(GameViewModel::class.java)
 
         binding.gameViewModel = gameViewModel

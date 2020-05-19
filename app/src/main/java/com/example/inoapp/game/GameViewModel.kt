@@ -113,10 +113,14 @@ class GameViewModel(
         _navigateToQuiz.value = null
         _startQuizButtonVisible.value = View.GONE
     }
-    
+
     /** onClick() for game_start_quiz_button */
     fun onStartQuiz() {
         _navigateToQuiz.value = true
+    }
+
+    fun updateCurrentPointIndex(nextPointIndex: Int) {
+        _currentPointIndex.value = nextPointIndex
     }
 
     /** Cancels all coroutines when the ViewModel is cleared, to cleanup any pending work. */
