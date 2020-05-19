@@ -32,6 +32,7 @@
     <string name="title_add_new_point_location">Add point location!</string>
     <string name="title_trip_details_fragment">Trip details</string>
     <string name="title_game_fragment">Let\'s play</string>
+    <string name="title_quiz">Quiz</string>
 
     <!-- Card view default strings -->
     <string name="card_view_title_default">Trip title</string>
@@ -67,12 +68,6 @@
     <!-- YourTripsFragment layout strings -->
     <string name="your_trips_clear_last_trip_button">Clear Last Trip</string>
 
-    <!-- TripDetailsFragment layout strings -->
-    <string name="trip_details_trip_title">Trip title:</string>
-    <string name="trip_details_trip_description">Trip description:</string>
-    <string name="trip_details_number_of_points">Number of points:</string>
-    <string name="trip_details_trip_localization">Localization:</string>
-
     <!-- MapFragment layout strings -->
     <string name="map_fragment_add_location">Add location</string>
     <string name="coordinates_format">Coordinates:\nLat: %f, Long: %f</string>
@@ -80,7 +75,7 @@
 
     <!-- HomeFragment layout string -->
     <string name="home_welcome_banner">Welcome to InoApp!</string>
-    <string name="home_any_trip_text">It seems like you don\'t started any trip yet…</string>
+    <string name="home_any_trip_text">It seems like you haven\'t started any trip yet…</string>
     <string name="home_select_trip_text">Select one from your trips or see all of them in the main list ;-)</string>
     <string name="home_logo_image_content_description">Home logo image</string>
     <string name="home_your_trips_button_text">Select trip from your list</string>
@@ -89,10 +84,25 @@
     <string name="home_about_button_text">About InoApp</string>
     <string name="home_game_button_text">Go to your game</string>
 
+    <!-- GameFragment layout strings -->
+    <string name="game_toggle_view_button_text">Toggle View</string>
+    <string name="game_end_trip_button_text">End trip</string>
+    <!-- GameFragment strings -->
+    <string name="game_left_the_game_statement">You left the game.</string>
+
+    <!-- QuizFragment strings -->Right answer!
+    Click next button and keep exploring.
+    <string name="quiz_right_answer_statement">Right answer!\nClick next button and keep exploring.</string>
+    <string name="quiz_wrong_answer_statement">Wrong answer :( Try again.</string>
+    <string name="quiz_win_statement">Congratulations!\nYou have finished this trip.</string>
+
     <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
-    <string name="saved_number_of_last_point">numberOfLastPoint</string>
+    <string name="saved_trip_number_of_points">tripNumberOfPoints</string>
+    <string name="saved_current_point_index">currentPointIndex</string>
 
+    <!-- BindingUtils strings-->
+    <string name="game_point_format">Point %d of %d</string>
 
     <string name="title_activity_maps">Map</string>
 

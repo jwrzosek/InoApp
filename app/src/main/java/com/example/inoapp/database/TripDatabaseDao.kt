@@ -21,7 +21,7 @@ interface TripDatabaseDao {
 
     @Transaction
     @Insert
-    fun insertTripsWithPoints(trip: Trip, points: List<Point>)
+    fun insertTripWithPoints(trip: Trip, points: List<Point>)
 
     // POINT
     /**
@@ -29,6 +29,13 @@ interface TripDatabaseDao {
      */
     @Insert
     fun insertPointList(points: List<Point>)
+
+    // POINTS
+    /**
+     * Selects and returns the row that matches id.
+     */
+    @Query("SELECT * FROM points WHERE ownerTripId = :key")
+    fun getPointsById(key: Long): LiveData<List<Point>>
 
     // TRIP
     /**

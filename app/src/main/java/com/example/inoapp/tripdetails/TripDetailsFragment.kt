@@ -46,7 +46,9 @@ class TripDetailsFragment : Fragment() {
         tripDetailsViewModel.navigateToHomeScreen.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigate(R.id.action_tripDetailsFragment_to_homeFragment)
-                saveTripIdInSharedPreferences(arguments.tripIdKey)
+                saveTripInfoSharedPreferences(
+                    arguments.tripIdKey,
+                    requireNotNull(tripDetailsViewModel.getTrip().value?.numberOfPoints))
                 tripDetailsViewModel.doneNavigating()
             }
         })
@@ -67,14 +69,14 @@ class TripDetailsFragment : Fragment() {
      * this action is provided in saveTripIdInSharedPreferences() method
      * inside TripDetailsFragment.
      */
-    private fun saveTripIdInSharedPreferences(tripId: Long) {
+    private fun saveTripInfoSharedPreferences(tripId: Long, tripNumberOfPoints: Int) {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
         with (sharedPref.edit()) {
             putLong(getString(R.string.saved_trip_id), tripId)
+            putInt(getString(R.string.saved_current_point_index), 0)
+            putInt(getString(R.string.saved_trip_number_of_points), tripNumberOfPoints)
             apply()
         }
-        Log.d("TripDetailsFragment", "saveTripIdInSharedPreferences with id=$tripId")
+        Log.d("TripDetailsFragment", "saveTripIdInSharedPreferences with id=$tripId nop=$tripNumberOfPoints")
     }
-
-
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context="com.example.inoapp.quiz.QuizFragment">
+
+    <data>
+        <variable
+                name="quizViewModel"
+                type="com.example.inoapp.quiz.QuizViewModel" />
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_light">
+
+            <ImageView
+                    android:id="@+id/quiz_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:contentDescription="@string/about_app_logo_image_content_description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/logo" />
+
+            <TextView
+                    android:id="@+id/quiz_point_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    app:pointDescriptionForQuiz="@{quizViewModel.points[quizViewModel.currentPointIndex]}"
+                    app:layout_constraintEnd_toStartOf="@+id/quiz_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/quiz_logo" />
+
+            <TextView
+                    android:id="@+id/quiz_question_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="82dp"
+                    app:questionForQuiz="@{quizViewModel.points[quizViewModel.currentPointIndex]}"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="@+id/quiz_logo"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/quiz_point_description"
+                    app:layout_constraintTop_toBottomOf="@+id/quiz_point_description" />
+
+            <Button
+                    android:id="@+id/quiz_answer1_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:item="@{quizViewModel.points[quizViewModel.currentPointIndex]}"
+                    app:whichButton="@{quizViewModel.quizAnswer1}"
+                    android:onClick="@{() -> quizViewModel.onAnswer1()}"
+                    app:layout_constraintEnd_toEndOf="@+id/quiz_question_text"
+                    app:layout_constraintStart_toStartOf="@+id/quiz_question_text"
+                    app:layout_constraintTop_toBottomOf="@+id/quiz_question_text"
+                    style="@style/Buttons" />
+            <Button
+                    android:id="@+id/quiz_answer2_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:item="@{quizViewModel.points[quizViewModel.currentPointIndex]}"
+                    app:whichButton="@{quizViewModel.quizAnswer2}"
+                    android:onClick="@{() -> quizViewModel.onAnswer2()}"
+                    app:layout_constraintEnd_toEndOf="@+id/quiz_question_text"
+                    app:layout_constraintStart_toStartOf="@+id/quiz_question_text"
+                    app:layout_constraintTop_toBottomOf="@+id/quiz_answer1_button"
+                    style="@style/Buttons" />
+
+            <Button
+                    android:id="@+id/quiz_answer3_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:item="@{quizViewModel.points[quizViewModel.currentPointIndex]}"
+                    app:whichButton="@{quizViewModel.quizAnswer3}"
+                    android:onClick="@{() -> quizViewModel.onAnswer3()}"
+                    app:layout_constraintEnd_toEndOf="@+id/quiz_question_text"
+                    app:layout_constraintStart_toStartOf="@+id/quiz_question_text"
+                    app:layout_constraintTop_toBottomOf="@+id/quiz_answer2_button"
+                    style="@style/Buttons" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/quiz_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="@{quizViewModel.backButtonVisible}"
+                    android:onClick="@{() -> quizViewModel.onBack()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/quiz_answer3_button"
+                    app:srcCompat="@drawable/ic_quiz_next" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

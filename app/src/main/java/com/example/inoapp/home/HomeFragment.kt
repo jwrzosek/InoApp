@@ -3,6 +3,7 @@ package com.example.inoapp.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,14 +42,6 @@ class HomeFragment : Fragment() {
         binding.homeViewModel = homeViewModel
 
         binding.lifecycleOwner = this
-
-        // observer for selectedTripId; if != 0L it means that user has already selected trip
-        // and there is a need to navigate to GameFragment with this ID
-        /*homeViewModel.selectedTripId.observe(viewLifecycleOwner, Observer {
-            if (it != 0L) { // Observed state is != 0L which means that user has selected trip
-                this.findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
-            }
-        })*/
 
         // observer for navigateToGame flag
         homeViewModel.navigateToGame.observe(viewLifecycleOwner, Observer {
@@ -91,7 +84,7 @@ class HomeFragment : Fragment() {
             }
         })
 
-        Toast.makeText(context, "Shared preferences id: $tripId", Toast.LENGTH_LONG).show()
+        Log.d("HomeFragment", "Shared preferences trip id: $tripId") // todo: delete later
 
         return binding.root
     }

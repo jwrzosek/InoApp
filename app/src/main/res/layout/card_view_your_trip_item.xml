@@ -40,6 +40,8 @@
                     android:layout_marginBottom="@dimen/card_view_text_spacing"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:text="@string/card_view_title_default"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
                     app:tripTitle="@{trip}"/>
 
             <TextView

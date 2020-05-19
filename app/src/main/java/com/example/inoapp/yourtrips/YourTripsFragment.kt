@@ -2,6 +2,7 @@ package com.example.inoapp.yourtrips
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,7 +51,8 @@ class YourTripsFragment : Fragment() {
 
         // RecyclerView Adapter
         val adapter = YourTripsAdapter(TripClickListener {tripId ->
-            Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+            Log.d("YourTripsFragment", "Typed trip id: $tripId") // todo: delete later
             yourTripsViewModel.onTripClicked(tripId)
         })
         binding.yourTripsList.adapter = adapter
@@ -72,10 +74,6 @@ class YourTripsFragment : Fragment() {
             }
         })
 
-        //The complete onClickListener with Navigation // todo: delete later if not needed
-       /* binding.yourTripsButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_yourTripsFragment_to_homeFragment)
-        }*/
         return binding.root
     }
 }

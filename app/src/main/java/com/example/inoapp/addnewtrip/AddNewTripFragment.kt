@@ -23,10 +23,6 @@ import com.example.inoapp.databinding.FragmentAddNewTripBinding
  */
 class AddNewTripFragment : Fragment() {
 
-    /*private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
-        defaultViewModelProviderFactory
-    }*/
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding = DataBindingUtil.inflate<FragmentAddNewTripBinding>(inflater,
@@ -40,7 +36,6 @@ class AddNewTripFragment : Fragment() {
 
         // Create viewModel
         val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
-            //defaultViewModelProviderFactory
             AddNewTripViewModelFactory(dataSource)
         }
 
@@ -68,10 +63,6 @@ class AddNewTripFragment : Fragment() {
         binding.addNewTripAddNewPoint.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_addNewTripFragment_to_addNewPointFragment)
         }
-
-        /*binding.addNewTripAddButton.setOnClickListener { view : View ->
-            view.findNavController().navigateUp()
-        }*/
 
         return binding.root
     }
