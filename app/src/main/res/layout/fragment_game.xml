@@ -149,10 +149,10 @@
                 android:onClick="@{() -> gameViewModel.onToggleView()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/game_clear_shared_preferences" />
+                app:layout_constraintBottom_toTopOf="@+id/game_end_trip" />
 
         <Button
-                android:id="@+id/game_clear_shared_preferences"
+                android:id="@+id/game_end_trip"
                 style="@style/Buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,6 +160,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/game_end_trip_button_text"
+                android:onClick="@{() -> gameViewModel.onEndTrip()}"
                 android:visibility="@{gameViewModel.infoVisible}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -1,12 +1,10 @@
 package com.example.inoapp.game
 
 import android.Manifest
-import android.app.PendingIntent
 import android.content.Context
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationListener
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,19 +17,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentGameBinding
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_game.*
 
 /**
@@ -108,10 +103,14 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
 
         binding.lifecycleOwner = this
 
-        binding.gameClearSharedPreferences.setOnClickListener {view : View ->
-            clearSharedPreferences()
-            view.findNavController().navigateUp()
-        }
+        // add observer for endTrip flag
+        gameViewModel.endTrip.observe(viewLifecycleOwner, Observer {
+            if(it == true) {
+                clearSharedPreferences()
+                Toast.makeText(context, getString(R.string.game_left_the_game_statement), Toast.LENGTH_SHORT).show()
+                this.findNavController().navigateUp()
+            }
+        })
 
         // add observer for navigateToQuiz flag
         gameViewModel.navigateToQuiz.observe(viewLifecycleOwner, Observer {
@@ -130,12 +129,8 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
                 super.onLocationResult(location)
 
                 lastLocation = location.lastLocation
-                //placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
 
                 gameViewModel.updateDistanceToNextPoint(lastLocation)
-                /*Toast.makeText(context, "Last location:\n" +
-                        "latitude: ${lastLocation.latitude}" +
-                        "longitude: ${lastLocation.longitude}", Toast.LENGTH_LONG).show()*/
             }
         }
 
@@ -147,9 +142,9 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
     private fun startLocationUpdates() {
         // 1
         if (ActivityCompat.checkSelfPermission(requireNotNull(this.activity).application,
-                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireNotNull(this.activity),
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 LOCATION_PERMISSION_REQUEST_CODE)
             return
         }

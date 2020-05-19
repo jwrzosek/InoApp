@@ -54,9 +54,8 @@ class QuizFragment : Fragment(){
                     this.findNavController().navigateUp()
                     quizViewModel.doneNavigating()
                 } else {
-                    //Toast.makeText(context, "Congratulations!\nYou have finished this trip.", Toast.LENGTH_LONG).show()
-                    Snackbar.make(binding.root, "Congratulations!\nYou have finished this trip.", Snackbar.LENGTH_SHORT).show()
-                    //todo: end of trip, clear sheardprefs and navigate to home fragment
+                    Snackbar.make(binding.root, getString(R.string.quiz_win_statement), Snackbar.LENGTH_LONG).show()
+                    // end trip, clear SharedPreferences and navigate to home fragment
                     clearSharedPreferences()
                     this.findNavController().navigate(R.id.action_quizFragment_to_homeFragment)
                 }
@@ -66,7 +65,7 @@ class QuizFragment : Fragment(){
         // add observer for showRightAnswerToast flag
         quizViewModel.showRightAnswerToast.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                Toast.makeText(context, "Right answer!\nClick next button and keep exploring.", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, getString(R.string.quiz_right_answer_statement), Toast.LENGTH_SHORT).show()
                 quizViewModel.doneShowingToast()
             }
         })
@@ -74,7 +73,7 @@ class QuizFragment : Fragment(){
         // add observer for showWrongAnswerToast flag
         quizViewModel.showWrongAnswerToast.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                Toast.makeText(context, "Wrong answer :( Try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.quiz_wrong_answer_statement), Toast.LENGTH_SHORT).show()
                 quizViewModel.doneShowingToast()
             }
         })

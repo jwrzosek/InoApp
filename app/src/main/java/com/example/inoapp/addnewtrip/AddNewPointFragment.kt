@@ -22,10 +22,6 @@ import com.example.inoapp.databinding.FragmentAddNewPointBinding
  */
 class AddNewPointFragment : Fragment() {
 
-    /*private val viewModel: AddNewTripViewModel by navGraphViewModels(R.id.addNewTripNavigation) {
-        defaultViewModelProviderFactory
-    }*/
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding = DataBindingUtil.inflate<FragmentAddNewPointBinding>(inflater,
@@ -58,11 +54,6 @@ class AddNewPointFragment : Fragment() {
                 viewModel.doneNavigating()
             }
         })
-
-        /*binding.addNewPointAddButton.setOnClickListener { view : View ->
-            view.findNavController().navigateUp()
-            // todo: add point action, remove if not needed
-        }*/
 
         // if data is incomplete then show Toast to user
         viewModel.showIncompleteDataToast.observe(viewLifecycleOwner, Observer {

@@ -30,31 +30,6 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     val navigateToTripDetail: LiveData<Long>
         get() = _navigateToTripDetail
 
-
-    //private lateinit var twp: List<TripWithPoints> todo: delete when stop being needed for testing
-
-    init {
-        //initializeTrips() // todo: delete when stop being needed for testing
-    }
-
-    /* // todo: delete when stop being needed for testing
-    private fun initializeTrips() {
-        uiScope.launch {
-            twp = getTripWithPointsFromDatabase()
-            Log.d("YourTripsViewModel",
-                "${twp.last().trip.tripTitle}\n" +
-            "${twp.last().points.last().ownerTripId}" +
-                    "\"${twp.last().points.last().pointLatitude}" +
-                    "\"${twp.last().points.last().pointQuestion}")
-        }
-    }
-    private suspend fun getTripWithPointsFromDatabase(): List<TripWithPoints> {
-        return withContext(Dispatchers.IO) {
-            val tripWithPoints = database.getTripsWithPoints()
-            tripWithPoints
-        }
-    }*/
-
     /**
      * onClick() function for handling trip click event.
      */

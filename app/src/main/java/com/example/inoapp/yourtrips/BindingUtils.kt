@@ -22,6 +22,8 @@ import kotlinx.android.synthetic.main.fragment_game.view.*
  * data into something that data binding can use to bind a view(e.g. text or an image)
  */
 
+// BASIC ADAPTERS
+
 @BindingAdapter("tripTitle")
 fun TextView.setTripTitle(item: Trip?) {
     item?.let {
@@ -54,7 +56,7 @@ fun TextView.setTripNumberOfPoints(item: Trip?) {
 }
 
 
-// Binding Adapters for GameFragment
+// BINDING ADAPTERS FOR GameFragment
 @BindingAdapter("tripTitleForGame")
 fun TextView.setTripTitleForGame(item: Trip?) {
     // null check because LiveData starts as a null
@@ -83,6 +85,16 @@ fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
     }
 }
 
+@BindingAdapter("pointDescriptionForGame")
+fun TextView.setPointDescriptionForGame(item: Point?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Point title:\n${item.pointDescription}"
+        text = stringFormatted
+    }
+}
+
+// BINDING ADAPTERS FOR TripDetailsFragment
 @BindingAdapter("tripLocalizationForDetails")
 fun TextView.setTripLocalizationForDetails(item: Trip?) {
     // null check because LiveData starts as a null
@@ -101,15 +113,7 @@ fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
     }
 }
 
-@BindingAdapter("pointDescriptionForGame")
-fun TextView.setPointDescriptionForGame(item: Point?) {
-    // null check because LiveData starts as a null
-    item?.let {
-        val stringFormatted = "Point title:\n${item.pointDescription}"
-        text = stringFormatted
-    }
-}
-
+// BINDING ADAPTERS FOR GameFragment
 @BindingAdapter("distanceLeftForGame")
 fun TextView.setDistanceLeftForGame(distance: Float) {
     val distanceLeft = distance.toInt()
@@ -122,20 +126,19 @@ fun TextView.setDistanceLeftForGame(distance: Float) {
 fun MapView.setGoogleMapsMarkerForGame(item: Point?) {
     item?.let {
         if(point_localization_map_view != null) {
-            point_localization_map_view.getMapAsync(OnMapReadyCallback() {googleMap ->
+            point_localization_map_view.getMapAsync { googleMap ->
                 googleMap.clear()
                 val homeLatLng = LatLng(item.pointLatitude, item.pointLongitude)
                 val zoomLevel = 14f
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
                 googleMap.addMarker(MarkerOptions().position(homeLatLng))
-            })
+            }
         }
     }
 }
 
 
-// Binding Adapters for Quiz
-
+// BINDING ADAPTERS FOR QuizFragment
 @BindingAdapter("pointDescriptionForQuiz")
 fun TextView.setPointDescriptionForQuiz(item: Point?) {
     // null check because LiveData starts as a null

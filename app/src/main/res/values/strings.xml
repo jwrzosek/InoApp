@@ -84,9 +84,17 @@
     <string name="home_about_button_text">About InoApp</string>
     <string name="home_game_button_text">Go to your game</string>
 
-    <!-- GameFragment layout string -->
+    <!-- GameFragment layout strings -->
     <string name="game_toggle_view_button_text">Toggle View</string>
     <string name="game_end_trip_button_text">End trip</string>
+    <!-- GameFragment strings -->
+    <string name="game_left_the_game_statement">You left the game.</string>
+
+    <!-- QuizFragment strings -->Right answer!
+    Click next button and keep exploring.
+    <string name="quiz_right_answer_statement">Right answer!\nClick next button and keep exploring.</string>
+    <string name="quiz_wrong_answer_statement">Wrong answer :( Try again.</string>
+    <string name="quiz_win_statement">Congratulations!\nYou have finished this trip.</string>
 
     <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
@@ -97,5 +105,6 @@
     <string name="game_point_format">Point %d of %d</string>
 
     <string name="title_activity_maps">Map</string>
+
 
 </resources>

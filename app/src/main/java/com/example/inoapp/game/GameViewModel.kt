@@ -16,11 +16,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
 class GameViewModel(
-    private val tripId: Long = 0L,
-    private val currentIndex: Int = 0,
+    tripId: Long = 0L,
+    currentIndex: Int = 0,
     dataSource: TripDatabaseDao) : ViewModel() {
 
-    private val MINIMUM_DISTANCE_FOR_QUIZ: Float = 1000F
+    private val MINIMUM_DISTANCE_FOR_QUIZ: Float = 10000F
 
     /** Hold a reference to InoDatabase via its TripDatabaseDao. */
     val database = dataSource
@@ -30,8 +30,6 @@ class GameViewModel(
      * viewModelJob allows us to cancel all coroutines started by this ViewModel.
      */
     private val viewModelJob = Job()
-
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val trip: LiveData<Trip>
         fun getTrip() = trip
@@ -51,10 +49,9 @@ class GameViewModel(
     val navigateToQuiz: LiveData<Boolean?>
         get() = _navigateToQuiz
 
-    // todo: delete later if not needed
-    /*private val _selectedTripId = MutableLiveData<Long>()
-    val selectedTripId: LiveData<Long>
-        get() = _selectedTripId*/
+    private val _endTrip = MutableLiveData<Boolean?>()
+    val endTrip: LiveData<Boolean?>
+        get() = _endTrip
 
     private val _infoVisible = MutableLiveData<Int>()
     val infoVisible: LiveData<Int>
@@ -70,7 +67,6 @@ class GameViewModel(
         _currentPointIndex.value = currentIndex
         _infoVisible.value = View.VISIBLE
         _startQuizButtonVisible.value = View.GONE
-        //_selectedTripId.value = tripId // todo: delete later if not needed
         Log.d("GameViewModel", "GameViewModel created!") // todo: delete if not needed
     }
 
@@ -80,13 +76,6 @@ class GameViewModel(
         Log.d("GameViewModel", "onToggleView clicked") // todo: delete if not needed
         _infoVisible.value = if (_infoVisible.value == View.VISIBLE) View.GONE
                              else View.VISIBLE
-        /*_currentPointIndex.value =
-            if(_currentPointIndex.value == 0)  {
-                1
-            }
-            else {
-                0
-            }*/
     }
 
     /**
@@ -102,7 +91,7 @@ class GameViewModel(
         val distanceToDestination = currentLocation.distanceTo(location)
         _distanceToNextPoint.value = distanceToDestination
 
-        // todo: if distancetonextpoint < 100m then navigate to quiz
+        // if distancetonextpoint < 100m then navigate to quiz
         if (distanceToDestination < MINIMUM_DISTANCE_FOR_QUIZ) {
             _startQuizButtonVisible.value = View.VISIBLE
         }
@@ -117,6 +106,11 @@ class GameViewModel(
     /** onClick() for game_start_quiz_button */
     fun onStartQuiz() {
         _navigateToQuiz.value = true
+    }
+
+    /** onClick() for game_end_trip_button */
+    fun onEndTrip() {
+        _endTrip.value = true
     }
 
     fun updateCurrentPointIndex(nextPointIndex: Int) {

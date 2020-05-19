@@ -140,7 +140,6 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
                     numberOfPoints = requireNotNull(_numberOfPoints.value)
                 )
 
-                // todo: add correct trip with points inserting
                 val tripId = insert(newTrip)
 
                 updateNewPointsTripId(tripId)
@@ -160,8 +159,6 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
      * Executes when the add_new_point_add_button is clicked.
      */
     fun onAddNewPoint() {
-        //todo: add checking if there are correct values
-        //todo: consider using elvis operatopr ?: eg. wrongAnswer1.value ?: ""
         if(pointQuestion.value != "" && rightAnswer.value != ""
             && wrongAnswer1.value != "" && wrongAnswer2.value != "") {
 
