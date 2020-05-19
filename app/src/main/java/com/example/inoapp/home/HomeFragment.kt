@@ -3,6 +3,7 @@ package com.example.inoapp.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -91,7 +92,8 @@ class HomeFragment : Fragment() {
             }
         })
 
-        Toast.makeText(context, "Shared preferences id: $tripId", Toast.LENGTH_LONG).show()
+        //Toast.makeText(context, "Shared preferences id: $tripId", Toast.LENGTH_LONG).show()
+        Log.d("HomeFragment", "Shared preferences trip id: $tripId") // todo: delete later
 
         return binding.root
     }

@@ -266,6 +266,7 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         }
         Log.d("TripDetailsFragment", "saveCurrentPointIndexInSharedPreferences with id=$currentPointIndex")
     }
+
     /**
      * Since, saving data to SharedReferences needs activity reference so
      * this action is provided in saveTripIdInSharedPreferences() method

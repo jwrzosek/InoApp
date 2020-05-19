@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentQuizBinding
+import com.google.android.material.snackbar.Snackbar
 
 class QuizFragment : Fragment(){
 
@@ -47,32 +48,33 @@ class QuizFragment : Fragment(){
         // add observer for navigateBackToGame flag
         quizViewModel.navigateBackToGame.observe(viewLifecycleOwner, Observer {
             if(it == true) {
-
                 // todo: update point current index with right condition
                 if (currentPointIndex < (tripNumberOfPoints - 1)){
                     updateCurrentPointIndexInSharedPreferences(currentPointIndex)
                     this.findNavController().navigateUp()
                     quizViewModel.doneNavigating()
                 } else {
-                    Toast.makeText(context, "You end this trip!\nCongratulations!", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context, "Congratulations!\nYou have finished this trip.", Toast.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, "Congratulations!\nYou have finished this trip.", Snackbar.LENGTH_SHORT).show()
                     //todo: end of trip, clear sheardprefs and navigate to home fragment
+                    clearSharedPreferences()
+                    this.findNavController().navigate(R.id.action_quizFragment_to_homeFragment)
                 }
-
             }
         })
 
         // add observer for showRightAnswerToast flag
         quizViewModel.showRightAnswerToast.observe(viewLifecycleOwner, Observer {
-            if(it == true) {
-                Toast.makeText(context, "Right answer!\nClick back button and keep exploring!", Toast.LENGTH_LONG).show()
+            if (it == true) {
+                Toast.makeText(context, "Right answer!\nClick next button and keep exploring.", Toast.LENGTH_LONG).show()
                 quizViewModel.doneShowingToast()
             }
         })
 
         // add observer for showWrongAnswerToast flag
         quizViewModel.showWrongAnswerToast.observe(viewLifecycleOwner, Observer {
-            if(it == true) {
-                Toast.makeText(context, "Wrong answer :( Try again!", Toast.LENGTH_SHORT).show()
+            if (it == true) {
+                Toast.makeText(context, "Wrong answer :( Try again.", Toast.LENGTH_SHORT).show()
                 quizViewModel.doneShowingToast()
             }
         })
@@ -87,5 +89,17 @@ class QuizFragment : Fragment(){
             apply()
         }
         Log.d("QuizFragment", "saveTripIdInSharedPreferences with id=${nextIndex+1}")
+    }
+
+    /** Method which clears trip info save in SharedPreferences when player finishes trip */
+    private fun clearSharedPreferences() {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putLong(getString(R.string.saved_trip_id), 0L)
+            putInt(getString(R.string.saved_current_point_index), 0)
+            putInt(getString(R.string.saved_trip_number_of_points), 0)
+            apply()
+        }
+        Log.d("GameFragment", "saveTripIdInSharedPreferences with id=0L")
     }
 }

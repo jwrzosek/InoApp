@@ -56,7 +56,11 @@
     </fragment>
 
     <fragment android:id="@+id/quizFragment" android:name="com.example.inoapp.quiz.QuizFragment"
-            android:label="@string/title_quiz" tools:layout="@layout/fragment_quiz"/>
+            android:label="@string/title_quiz" tools:layout="@layout/fragment_quiz">
+        <action
+                android:id="@+id/action_quizFragment_to_homeFragment"
+                app:destination="@id/homeFragment" />
+    </fragment>
 
     <navigation android:id="@+id/addNewTripNavigation" app:startDestination="@id/addNewTripFragment">
         <fragment android:id="@+id/addNewTripFragment" android:name="com.example.inoapp.addnewtrip.AddNewTripFragment"
