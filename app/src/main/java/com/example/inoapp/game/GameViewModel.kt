@@ -20,7 +20,7 @@ class GameViewModel(
     private val currentIndex: Int = 0,
     dataSource: TripDatabaseDao) : ViewModel() {
 
-    private val MINIMUM_DISTANCE_FOR_QUIZ: Float = 100F
+    private val MINIMUM_DISTANCE_FOR_QUIZ: Float = 1000F
 
     /** Hold a reference to InoDatabase via its TripDatabaseDao. */
     val database = dataSource
