@@ -3,6 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         tools:context="com.example.inoapp.game.GameFragment">
+
     <data>
         <variable
                 name="gameViewModel"
@@ -68,7 +69,7 @@
                 android:visibility="@{gameViewModel.infoVisible}"
                 app:layout_constraintTop_toBottomOf="@+id/game_trip_description"/>
 
-       
+
         <!-- Trip number of points -->
         <TextView
                 android:id="@+id/game_number_of_points"
@@ -119,10 +120,9 @@
         <com.google.android.gms.maps.MapView
                 android:id="@+id/point_localization_map_view"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="4dp"
                 android:layout_height="0dp"
                 app:googleMapsMarkerCoordinatesForGame="@{gameViewModel.points[gameViewModel.currentPointIndex]}"
-                app:layout_constraintBottom_toTopOf="@+id/game_toggle_view_button"
+                app:layout_constraintBottom_toTopOf="@+id/game_distance_left_text"
                 app:layout_constraintTop_toBottomOf="@+id/game_point_description_separator">
 
         </com.google.android.gms.maps.MapView>
@@ -132,6 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
+                android:layout_marginBottom="4dp"
                 android:paddingEnd="8dp"
                 android:background="@color/theme2Color"
                 app:distanceLeftForGame="@{gameViewModel.distanceToNextPoint}"
@@ -168,5 +169,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/game_start_quiz_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="24dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="@{gameViewModel.startQuizButtonVisible}"
+                android:onClick="@{() -> gameViewModel.onStartQuiz()}"
+                app:srcCompat="@drawable/ic_start_quiz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/point_localization_map_view" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.databinding.FragmentGameBinding
@@ -106,6 +107,14 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
             clearSharedPreferences()
             view.findNavController().navigateUp()
         }
+
+        // add observer for navigateToQuiz flag
+        gameViewModel.navigateToQuiz.observe(viewLifecycleOwner, Observer {
+            if(it == true) {
+                this.findNavController().navigate(R.id.action_gameFragment_to_quizFragment)
+                gameViewModel.doneNavigating()
+            }
+        })
 
         // fusedLocationClient.getLastLocation() gives you the most recent location currently available
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(application)
@@ -238,6 +247,20 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         }
     }
 
+
+    /**
+     * Since, saving data to SharedReferences needs activity reference so
+     * this action is provided in saveCurrentPointIndexInSharedPreferences() method
+     * inside GameFragment.
+     */
+    private fun saveCurrentPointIndexInSharedPreferences(currentPointIndex: Int) {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putInt(getString(R.string.saved_current_point_index), currentPointIndex)
+            apply()
+        }
+        Log.d("TripDetailsFragment", "saveCurrentPointIndexInSharedPreferences with id=$currentPointIndex")
+    }
     /**
      * Since, saving data to SharedReferences needs activity reference so
      * this action is provided in saveTripIdInSharedPreferences() method
@@ -247,6 +270,7 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
         with (sharedPref.edit()) {
             putLong(getString(R.string.saved_trip_id), 0L)
+            putInt(getString(R.string.saved_current_point_index), 0)
             apply()
         }
         Log.d("GameFragment", "saveTripIdInSharedPreferences with id=0L")

@@ -20,6 +20,8 @@ class GameViewModel(
     private val currentIndex: Int = 0,
     dataSource: TripDatabaseDao) : ViewModel() {
 
+    private val MINIMUM_DISTANCE_FOR_QUIZ: Float = 10000F
+
     /** Hold a reference to InoDatabase via its TripDatabaseDao. */
     val database = dataSource
 
@@ -34,7 +36,6 @@ class GameViewModel(
     private val trip: LiveData<Trip>
         fun getTrip() = trip
 
-
     private val points: LiveData<List<Point>>
         fun getPoints() = points
 
@@ -42,25 +43,34 @@ class GameViewModel(
     val distanceToNextPoint: LiveData<Float>
         get() = _distanceToNextPoint
 
-
     private val _currentPointIndex = MutableLiveData<Int>()
     val currentPointIndex: LiveData<Int>
         get() = _currentPointIndex
 
-    private val _selectedTripId = MutableLiveData<Long>()
+    private val _navigateToQuiz = MutableLiveData<Boolean?>()
+    val navigateToQuiz: LiveData<Boolean?>
+        get() = _navigateToQuiz
+
+    // todo: delete later if not needed
+    /*private val _selectedTripId = MutableLiveData<Long>()
     val selectedTripId: LiveData<Long>
-        get() = _selectedTripId
+        get() = _selectedTripId*/
 
     private val _infoVisible = MutableLiveData<Int>()
     val infoVisible: LiveData<Int>
         get() = _infoVisible
 
+    private val _startQuizButtonVisible = MutableLiveData<Int>()
+    val startQuizButtonVisible: LiveData<Int>
+        get() = _startQuizButtonVisible
+
     init {
         trip = database.getTripById(tripId)
         points = database.getPointsById(tripId)
         _currentPointIndex.value = currentIndex
-        _selectedTripId.value = tripId
         _infoVisible.value = View.VISIBLE
+        _startQuizButtonVisible.value = View.GONE
+        //_selectedTripId.value = tripId // todo: delete later if not needed
         Log.d("GameViewModel", "GameViewModel created!") // todo: delete if not needed
     }
 
@@ -79,15 +89,36 @@ class GameViewModel(
             }*/
     }
 
+    /**
+     * Method for updating distance left to point.
+     * If distance is lesser than MINIMUM_DISTANCE_FOR_QUIZ
+     * start navigation to QuizFragment
+     */
     fun updateDistanceToNextPoint(location: Location) {
         val currentLocation = Location("currentLocation")
         currentLocation.latitude = requireNotNull(points.value?.get(requireNotNull(currentPointIndex.value))?.pointLatitude)
         currentLocation.longitude = requireNotNull(points.value?.get(requireNotNull(currentPointIndex.value))?.pointLongitude)
 
-        _distanceToNextPoint.value = currentLocation.distanceTo(location)
+        val distanceToDestination = currentLocation.distanceTo(location)
+        _distanceToNextPoint.value = distanceToDestination
 
         // todo: if distancetonextpoint < 100m then navigate to quiz
+        if (distanceToDestination < MINIMUM_DISTANCE_FOR_QUIZ) {
+            _startQuizButtonVisible.value = View.VISIBLE
+        }
     }
+
+    /** Call this after navigation */
+    fun doneNavigating() {
+        _navigateToQuiz.value = null
+        _startQuizButtonVisible.value = View.GONE
+    }
+    
+    /** onClick() for game_start_quiz_button */
+    fun onStartQuiz() {
+        _navigateToQuiz.value = true
+    }
+
     /** Cancels all coroutines when the ViewModel is cleared, to cleanup any pending work. */
     override fun onCleared() {
         super.onCleared()
