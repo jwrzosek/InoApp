@@ -29,6 +29,10 @@ class TripListViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     val progressBarVisible: LiveData<Int>
         get() = _progressBarVisible
 
+    private val _navigateToHomeFragment = MutableLiveData<Boolean?>()
+    val navigateToHomeFragment: LiveData<Boolean?>
+        get() = _navigateToHomeFragment
+
     private val _trips = MutableLiveData<List<Trip>>()
     val trips: LiveData<List<Trip>>
         get() = _trips
@@ -39,6 +43,7 @@ class TripListViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     init {
         _progressBarVisible.value = View.VISIBLE
+
         firestoreDB.collection("trips")
             .get()
             .addOnSuccessListener { result ->
@@ -50,23 +55,26 @@ class TripListViewModel(dataSource: TripDatabaseDao) : ViewModel() {
                         tripLocalization =  "${document.data["tripLocalization"]}",
                         numberOfPoints = "${document.data["numberOfPoints"]}".toInt()
                     ))
-                    Log.d("AllTripsFragment", "${document.id} => ${document.data}")
+                    Log.d("TripListViewModel", "${document.id} => ${document.data}")
                 }
                 tripss.forEach { trip ->
-                    Log.d("AllTripsFragment", "${trip.tripTitle}, ${trip.tripDescription}, ${trip.tripLocalization}, ${trip.numberOfPoints}")
+                    Log.d("TripListViewModel", "${trip.tripTitle}, ${trip.tripDescription}, ${trip.tripLocalization}, ${trip.numberOfPoints}")
                 }
                 _trips.value = tripss
                 _progressBarVisible.value = View.GONE
             }
             .addOnFailureListener { exception ->
-                Log.d("AllTripsFragment", "Error getting documents: ", exception)
+                Log.d("TripListViewModel", "Error getting documents: ", exception)
             }
-
     }
 
     /** onClick() function for handling trip click event. */
-    fun onTripClicked(id : Long) {
-
+    fun onTripClicked(title : String) {
+        _trips.value?.forEachIndexed { index, trip ->
+            if (trip.tripTitle == title) {
+                addNewTrip(trip, index)
+            }
+        }
     }
 
     // Room Database stuff
@@ -87,37 +95,51 @@ class TripListViewModel(dataSource: TripDatabaseDao) : ViewModel() {
         }
     }
 
-    /**
-     * Executes when the add_new_trip_add_button is clicked.
-     */
-    fun onAddNewTrip() {
+    private fun addNewTrip(newTrip: Trip, index: Int) {
         // todo: sprawdzic czy dane się zgadzają
-            uiScope.launch {
+        uiScope.launch {
 
-                // Create a new trip, with random title,
-                // and insert it into the database.
-                // todo: consider using elvis operatopr ?: eg. wrongAnswer1.value ?: ""
-               /* val newTrip = Trip(
-                    tripTitle = requireNotNull(tripTitle.value),
-                    tripDescription = requireNotNull(tripDescription.value),
-                    tripLocalization = requireNotNull(tripLocalization.value),
-                    numberOfPoints = requireNotNull(_numberOfPoints.value)
-                )*/
+            val tripId = insert(newTrip)
 
-                //val tripId = insert(newTrip)
-
-                //updateNewPointsTripId(tripId)
-
-                insertPointList(points)
-
-               // _navigateToHomeFragment.value = true
-            }
+            firestoreDB.collection("trips").document(tripsId[index]).collection("points")
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        points.add(Point(
+                            pointLatitude = "${document.data["pointLatitude"]}".toDouble(),
+                            pointLongitude = "${document.data["pointLongitude"]}".toDouble(),
+                            pointDescription = "${document.data["pointDescription"]}",
+                            pointQuestion = "${document.data["pointQuestion"]}",
+                            rightAnswer = "${document.data["rightAnswer"]}",
+                            wrongAnswer1 = "${document.data["wrongAnswer1"]}",
+                            wrongAnswer2 = "${document.data["wrongAnswer2"]}"
+                        ))
+                        Log.d("TripListViewModel", "${document.id} => ${document.data}")
+                    }
+                    tripss.forEach { trip ->
+                        Log.d("TripListViewModel", "${trip.tripTitle}, ${trip.tripDescription}, ${trip.tripLocalization}, ${trip.numberOfPoints}")
+                    }
+                    updateNewPointsTripId(tripId)
+                    _progressBarVisible.value = View.GONE
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("TripListViewModel", "Error getting documents: ", exception)
+                }
+        }
     }
 
     private fun updateNewPointsTripId(tripId : Long) {
         points.forEach { point ->
             point.ownerTripId = tripId
         }
+        uiScope.launch {
+            insertPointList(points)
+            _navigateToHomeFragment.value = true
+        }
+    }
+
+    fun doneNavigating() {
+        _navigateToHomeFragment.value = null
     }
 
     override fun onCleared() {

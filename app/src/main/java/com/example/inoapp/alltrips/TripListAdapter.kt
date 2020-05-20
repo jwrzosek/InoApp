@@ -53,6 +53,6 @@ class YourTripsDiffCallback : DiffUtil.ItemCallback<Trip>() {
 
 }
 
-class TripClickListener(val clickListener: (tripId: Long) -> Unit) {
-    fun onClick(trip: Trip) = clickListener(trip.tripId)
+class TripClickListener(val clickListener: (tripTitle: String) -> Unit) {
+    fun onClick(trip: Trip) = clickListener(trip.tripTitle)
 }

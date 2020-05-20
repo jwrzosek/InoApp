@@ -55,6 +55,7 @@ class TripDetailsViewModel(
     private suspend fun deleteTrip(tripId: Long) {
         withContext(Dispatchers.IO) {
             database.deleteTripById(tripId)
+            database.deletePointsByTripID(tripId)
         }
     }
 

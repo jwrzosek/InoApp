@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.inoapp.R
 import com.example.inoapp.database.InoDatabase
 import com.example.inoapp.database.Trip
@@ -50,13 +51,20 @@ class TripListFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // RecyclerView Adapter
-        val adapter = TripListAdapter(TripClickListener { tripId ->
-            Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+        val adapter = TripListAdapter(TripClickListener { tripTitle ->
+            Toast.makeText(context, "Typed trip title: $tripTitle", Toast.LENGTH_LONG).show()
             //Log.d("YourTripsFragment", "Typed trip id: $tripId") // todo: delete later
-            tripListViewModel.onTripClicked(tripId)
+            tripListViewModel.onTripClicked(tripTitle)
         })
 
         binding.tripListList.adapter = adapter
+
+        tripListViewModel.navigateToHomeFragment.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                this.findNavController().navigateUp()
+                tripListViewModel.doneNavigating()
+            }
+        })
 
         // Observe if list displaying by RecyclerView has changed
         tripListViewModel.trips.observe(viewLifecycleOwner, Observer {

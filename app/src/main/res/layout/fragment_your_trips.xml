@@ -24,13 +24,13 @@
                 android:layout_marginBottom="@dimen/recycler_view_margin"
                 android:layout_marginStart="@dimen/recycler_view_margin"
                 android:layout_marginEnd="@dimen/recycler_view_margin"
-                app:layout_constraintBottom_toTopOf="@+id/clearTripsButton"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-        <Button
+        <!--<Button
                 android:id="@+id/clearTripsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:onClick="@{() -> yourTripsViewModel.onClear()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"/>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

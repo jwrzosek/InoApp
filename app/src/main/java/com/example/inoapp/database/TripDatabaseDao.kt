@@ -45,6 +45,12 @@ interface TripDatabaseDao {
     fun insertTrip(trip: Trip) : Long
 
     /**
+     * Deletes  row that matches id.
+     */
+    @Query("DELETE FROM points WHERE ownerTripId = :key")
+    fun deletePointsByTripID(key: Long)
+
+    /**
      * When updating a row with a value already set in a column,
      * replaces the old value with the new one.
      *
