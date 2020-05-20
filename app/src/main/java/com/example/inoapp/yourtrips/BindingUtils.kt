@@ -55,6 +55,24 @@ fun TextView.setTripNumberOfPoints(item: Trip?) {
     }
 }
 
+// BINDING ADAPTERS FOR TripListFragment
+@BindingAdapter("tripLocalizationForTripList")
+fun TextView.setTripLocalizationForTripList(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Localization: ${item.tripLocalization}"
+        text = stringFormatted
+    }
+}
+
+@BindingAdapter("tripNumberOfPointsForTripList")
+fun TextView.setTripNumberOfPointsForTripList(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Number of points: ${item.numberOfPoints}"
+        text = stringFormatted
+    }
+}
 
 // BINDING ADAPTERS FOR GameFragment
 @BindingAdapter("tripTitleForGame")

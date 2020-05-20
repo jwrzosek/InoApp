@@ -51,8 +51,8 @@ class YourTripsFragment : Fragment() {
 
         // RecyclerView Adapter
         val adapter = YourTripsAdapter(TripClickListener {tripId ->
-            //Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
-            Log.d("YourTripsFragment", "Typed trip id: $tripId") // todo: delete later
+            Toast.makeText(context, "Typed trip id: $tripId", Toast.LENGTH_LONG).show()
+            //Log.d("YourTripsFragment", "Typed trip id: $tripId") // todo: delete later
             yourTripsViewModel.onTripClicked(tripId)
         })
         binding.yourTripsList.adapter = adapter

@@ -38,6 +38,9 @@
     <string name="card_view_title_default">Trip title</string>
     <string name="card_view_description_default">Trip description</string>
 
+    <string name="card_view_localization_default">Trip localization</string>
+    <string name="card_view_number_of_points_default">Trip number of points</string>
+
     <!-- AddNewTripFragment layout strings -->
     <string name="add_new_trip_trip_title">Trip title:</string>
     <string name="add_new_trip_trip_title_hint">Enter trip title</string>
@@ -105,6 +108,7 @@
     <string name="game_point_format">Point %d of %d</string>
 
     <string name="title_activity_maps">Map</string>
+
 
 
 </resources>

@@ -24,4 +24,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Basic styling for card view buttons. -->
+    <style name="CardViewButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/theme2ColorLight</item>
+        <item name="android:background">@drawable/card_view_buttons_background</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>
