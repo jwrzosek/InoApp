@@ -50,6 +50,7 @@ class TripDetailsFragment : Fragment() {
                 saveTripInfoSharedPreferences(
                     arguments.tripIdKey,
                     requireNotNull(tripDetailsViewModel.getTrip().value?.numberOfPoints))
+                Toast.makeText(context, "Click 'GO TO YOUR GAME' to start your trip.", Toast.LENGTH_SHORT).show()
                 tripDetailsViewModel.doneNavigating()
             }
         })
