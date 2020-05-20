@@ -63,7 +63,6 @@ class YourTripsFragment : Fragment() {
                    YourTripsFragmentDirections.actionYourTripsFragmentToTripDetailsFragment(tripId))
                 yourTripsViewModel.onTripDetailsNavigated()
             }
-
         })
 
         // Observe if list displaying by RecyclerView has changed

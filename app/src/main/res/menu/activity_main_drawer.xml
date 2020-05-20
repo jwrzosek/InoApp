@@ -30,10 +30,10 @@
                 android:id="@+id/aboutFragment"
                 android:icon="@drawable/ic_menu_about"
                 android:title="@string/menu_about"/>
-        <item
+        <!--<item
                 android:id="@+id/nav_contact"
                 android:icon="@drawable/ic_menu_contact"
-                android:title="@string/menu_contact"/>
+                android:title="@string/menu_contact"/>-->
     </group>
 
 </menu>

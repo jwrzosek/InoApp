@@ -16,7 +16,7 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     private var viewModelJob = Job()
 
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    //private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     /**
      * Get all trips from local database.
@@ -42,21 +42,22 @@ class YourTripsViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     }
 
 
-    private suspend fun clear() {
+   /* private suspend fun clear() {
         withContext(Dispatchers.IO) {
             database.deleteLastTrip()
         }
-    }
+    }*/
 
     /**
      * Executes when the CLEAR button is clicked.
      */
-    fun onClear() {
+   /* fun onClear() {
         uiScope.launch {
             // Clear the database table.
             clear()
         }
-    }
+    }*/
+
     /**
      * Called when the ViewModel is dismantled.
      * At this point, we want to cancel all coroutines;

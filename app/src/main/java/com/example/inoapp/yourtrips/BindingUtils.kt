@@ -55,6 +55,24 @@ fun TextView.setTripNumberOfPoints(item: Trip?) {
     }
 }
 
+// BINDING ADAPTERS FOR TripListFragment
+@BindingAdapter("tripLocalizationForTripList")
+fun TextView.setTripLocalizationForTripList(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Localization: ${item.tripLocalization}"
+        text = stringFormatted
+    }
+}
+
+@BindingAdapter("tripNumberOfPointsForTripList")
+fun TextView.setTripNumberOfPointsForTripList(item: Trip?) {
+    // null check because LiveData starts as a null
+    item?.let {
+        val stringFormatted = "Number of points: ${item.numberOfPoints}"
+        text = stringFormatted
+    }
+}
 
 // BINDING ADAPTERS FOR GameFragment
 @BindingAdapter("tripTitleForGame")
@@ -70,12 +88,12 @@ fun TextView.setTripTitleForGame(item: Trip?) {
 fun TextView.setTripDescriptionForGame(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip title:\n${item.tripDescription}"
+        val stringFormatted = "Trip description:\n${item.tripDescription}"
         text = stringFormatted
     }
 }
 
-@BindingAdapter(value=["tripWhichPointForGame:item", "tripWhichPointForGame:currentIndex"], requireAll = true)
+@BindingAdapter(value=["item", "currentIndex"], requireAll = true)
 fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
     // null check because LiveData starts as a null
     item?.let {
@@ -108,7 +126,7 @@ fun TextView.setTripLocalizationForDetails(item: Trip?) {
 fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip localization:\n${item.numberOfPoints}"
+        val stringFormatted = "Number of points:\n${item.numberOfPoints}"
         text = stringFormatted
     }
 }
@@ -156,7 +174,7 @@ fun TextView.setQuestionForQuiz(item: Point?) {
     }
 }
 
-@BindingAdapter(value=["answerForQuiz:item", "answerForQuiz:whichButton"], requireAll = true)
+@BindingAdapter(value=["item", "whichButton"], requireAll = true)
 fun Button.setAnswerForQuiz(item: Point?, whichButton: Int) {
     // null check because LiveData starts as a null
     item?.let {

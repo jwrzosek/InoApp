@@ -83,7 +83,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         val longitude = requireNotNull(viewModel.longitude.value)// 21.054533
 
         val homeLatLng = LatLng(latitude, longitude)
-        val zoomLevel = 15f
+        val zoomLevel = 13f
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
         googleMap.addMarker(MarkerOptions().position(homeLatLng))
 
