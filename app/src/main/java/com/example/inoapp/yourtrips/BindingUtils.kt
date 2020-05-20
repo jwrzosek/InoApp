@@ -88,7 +88,7 @@ fun TextView.setTripTitleForGame(item: Trip?) {
 fun TextView.setTripDescriptionForGame(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip title:\n${item.tripDescription}"
+        val stringFormatted = "Trip description:\n${item.tripDescription}"
         text = stringFormatted
     }
 }
@@ -126,7 +126,7 @@ fun TextView.setTripLocalizationForDetails(item: Trip?) {
 fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip localization:\n${item.numberOfPoints}"
+        val stringFormatted = "Number of points:\n${item.numberOfPoints}"
         text = stringFormatted
     }
 }

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -42,7 +43,7 @@ class TripDetailsFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        // observer for navigateToHome flag which mean user click start trip button
+        // observer for navigateToHome flag which mean that user click start trip button
         tripDetailsViewModel.navigateToHomeScreen.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigate(R.id.action_tripDetailsFragment_to_homeFragment)
@@ -53,7 +54,17 @@ class TripDetailsFragment : Fragment() {
             }
         })
 
-        // observer for navigateToYourTrips flag which mean user click back button
+        // observer for navigateToYourTripsWhenDeleted flag which mean that user click delete trip button
+        tripDetailsViewModel.navigateToYourTripsWhenDeleted.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                clearSharedPreferences()
+                this.findNavController().navigateUp()
+                Toast.makeText(context, "Trip deleted.", Toast.LENGTH_SHORT).show()
+                tripDetailsViewModel.doneNavigating()
+            }
+        })
+
+        // observer for navigateToYourTrips flag which mean that user click back button
         tripDetailsViewModel.navigateToYourTrips.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
                 this.findNavController().navigateUp()
@@ -79,4 +90,16 @@ class TripDetailsFragment : Fragment() {
         }
         Log.d("TripDetailsFragment", "saveTripIdInSharedPreferences with id=$tripId nop=$tripNumberOfPoints")
     }
+
+    private fun clearSharedPreferences() {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putLong(getString(R.string.saved_trip_id), 0L)
+            putInt(getString(R.string.saved_current_point_index), 0)
+            putInt(getString(R.string.saved_trip_number_of_points), 0)
+            apply()
+        }
+        Log.d("GameFragment", "saveTripIdInSharedPreferences with id=0L")
+    }
+
 }

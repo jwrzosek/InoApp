@@ -272,6 +272,7 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         with (sharedPref.edit()) {
             putLong(getString(R.string.saved_trip_id), 0L)
             putInt(getString(R.string.saved_current_point_index), 0)
+            putInt(getString(R.string.saved_trip_number_of_points), 0)
             apply()
         }
         Log.d("GameFragment", "saveTripIdInSharedPreferences with id=0L")

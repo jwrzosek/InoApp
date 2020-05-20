@@ -1,10 +1,7 @@
 package com.example.inoapp.tripdetails
 
-import android.app.Activity
-import android.app.Application
-import android.content.Context
+
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -37,6 +34,10 @@ class TripDetailsViewModel(
     val navigateToYourTrips: LiveData<Boolean?>
         get() = _navigateToYourTrips
 
+    private val _navigateToYourTripsWhenDeleted = MutableLiveData<Boolean?>()
+    val navigateToYourTripsWhenDeleted: LiveData<Boolean?>
+        get() = _navigateToYourTripsWhenDeleted
+
     private val _navigateToHomeScreen = MutableLiveData<Boolean?>()
     val navigateToHomeScreen: LiveData<Boolean?>
         get() = _navigateToHomeScreen
@@ -50,6 +51,7 @@ class TripDetailsViewModel(
     fun doneNavigating() {
         _navigateToYourTrips.value = null
         _navigateToHomeScreen.value = null
+        _navigateToYourTripsWhenDeleted.value = null
     }
 
     private suspend fun deleteTrip(tripId: Long) {
@@ -74,7 +76,7 @@ class TripDetailsViewModel(
         uiScope.launch {
             // Clear the database table.
             deleteTrip(tripIdKey)
-            _navigateToYourTrips.value = true
+            _navigateToYourTripsWhenDeleted.value = true
         }
     }
 
