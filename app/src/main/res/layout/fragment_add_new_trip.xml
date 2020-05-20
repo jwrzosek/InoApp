@@ -113,6 +113,7 @@
                     android:layout_marginTop="16dp"
                     android:paddingStart="@dimen/fab_margin"
                     android:paddingEnd="@dimen/fab_margin"
+                    android:onClick="@{() -> addNewTripViewModel.onDeleteLastPoint()}"
                     android:text="@string/add_new_trip_button_clear_last_point"
                     style="@style/Buttons"/>
 

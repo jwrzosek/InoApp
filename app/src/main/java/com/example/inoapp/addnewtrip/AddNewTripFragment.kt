@@ -59,6 +59,14 @@ class AddNewTripFragment : Fragment() {
             }
         })
 
+        // if user try to delete last point when there are no points on a list show Toast to user
+        viewModel.showNoPointsStatement.observe(viewLifecycleOwner, Observer {
+            if (it == true) { // Observed state is true.
+                Toast.makeText(application, "No points added.", Toast.LENGTH_SHORT).show()
+                viewModel.doneShowingToast()
+            }
+        })
+
         //The complete onClickListener with Navigation
         binding.addNewTripAddNewPoint.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_addNewTripFragment_to_addNewPointFragment)

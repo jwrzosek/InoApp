@@ -38,6 +38,10 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
     val showIncompleteDataToast: LiveData<Boolean>
         get() = _showIncompleteDataToast
 
+    private var _showNoPointsStatement = MutableLiveData<Boolean>()
+    val showNoPointsStatement: LiveData<Boolean>
+        get() = _showNoPointsStatement
+
     /**
      *  Point description attributes.
      */
@@ -196,7 +200,19 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
      * todo: implement deleting points
      */
     private fun deacreaseNumberOfPoints() {
-        _numberOfPoints.value = (_numberOfPoints.value)?.minus(1)
+        if (points.size > 0) {
+            points.removeAt(points.lastIndex)
+            _numberOfPoints.value = (_numberOfPoints.value)?.minus(1)
+        }
+    }
+
+    fun onDeleteLastPoint() {
+        if (points.size > 0) {
+            points.removeAt(points.lastIndex)
+            _numberOfPoints.value = (_numberOfPoints.value)?.minus(1)
+        } else {
+            _showNoPointsStatement.value = true
+        }
     }
 
     private fun updateNewPointsTripId(tripId : Long) {
@@ -211,8 +227,8 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
      * to clean UI for adding another point.
      */
     private fun addPointCleanUp() {
-        _latitude.value = 52.181510
-        _longitude.value = 21.054533
+        _latitude.value = 52.232408
+        _longitude.value = 21.005845
         pointDescription.value = ""
         pointQuestion.value = ""
         rightAnswer.value = ""
@@ -227,6 +243,7 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
 
     fun doneShowingToast() {
         _showIncompleteDataToast.value = false
+        _showNoPointsStatement.value = false
     }
 
     override fun onCleared() {

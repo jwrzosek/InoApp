@@ -16,9 +16,9 @@
     <string name="menu_contact">Contact Us</string>
 
     <!-- About strings -->
-    <string name="about_text">Ino App was created to provide interesting way to spend time actively. Feel free to
+    <string name="about_text">Ino App was created to provide an interesting way to spend time actively. Feel free to
         discover unknown, amazing
-        places and learn something about them solving quizzes and trying to get to the right location.
+        places and learn something about them by solving quizzes and trying to get to the right location.
     </string>
     <string name="about_app_logo_image_content_description">App logo image</string>
 
@@ -26,10 +26,10 @@
     <string name="title_about_fragment">About Us</string>
     <string name="title_trip_list_fragment">Trip List</string>
     <string name="title_home_fragment">Ino App</string>
-    <string name="title_add_new_trip">Add New Trip!</string>
+    <string name="title_add_new_trip">Add New Trip</string>
     <string name="title_your_trips_fragment">Your Trips</string>
-    <string name="title_add_new_point">Add new point!</string>
-    <string name="title_add_new_point_location">Add point location!</string>
+    <string name="title_add_new_point">Add new point</string>
+    <string name="title_add_new_point_location">Add point location</string>
     <string name="title_trip_details_fragment">Trip details</string>
     <string name="title_game_fragment">Let\'s play</string>
     <string name="title_quiz">Quiz</string>
@@ -46,26 +46,26 @@
     <string name="add_new_trip_trip_title_hint">Enter trip title</string>
     <string name="add_new_trip_trip_description">Trip description:</string>
     <string name="add_new_trip_trip_description_hint">Enter trip description</string>
-    <string name="add_new_trip_trip_localization">Trip localization (e.g. Warsaw)</string>
-    <string name="add_new_trip_trip_localization_hint">Enter trip localization</string>
+    <string name="add_new_trip_trip_localization">Trip location (e.g. Warsaw)</string>
+    <string name="add_new_trip_trip_localization_hint">Enter trip location</string>
     <string name="add_new_trip_number_of_points">Number of points: 0</string>
     <string name="add_new_trip_points_added">Points added:</string>
     <string name="add_new_trip_button_add_new_point">Add point</string>
     <string name="add_new_trip_button_clear_last_point">Clear last point</string>
-    <string name="add_new_trip_button_add_new_trip">Add new trip!</string>
+    <string name="add_new_trip_button_add_new_trip">Add new trip</string>
     <string name="add_new_trip_number_of_points_format">Number of points: %d</string>
 
     <!-- AddNewPointFragment layout strings -->
     <string name="add_new_point_location_label">Point location:</string>
-    <string name="add_new_point_add_location_button_text">Add point location!</string>
-    <string name="add_new_point_add_description_label_text">Point description (optional):</string>
+    <string name="add_new_point_add_location_button_text">Add point location</string>
+    <string name="add_new_point_add_description_label_text">Point description:</string>
     <string name="add_new_point_description_content_hint">Add point description</string>
     <string name="add_new_point_add_question_label_text">Add quiz question and answers:</string>
     <string name="add_new_point_question_hint">Question</string>
     <string name="add_new_point_right_answer_hint">Right answer</string>
     <string name="add_new_point_wrong_answer1_hint">Wrong answer 1</string>
     <string name="add_new_point_wrong_answer2_hint">Wrong answer 2</string>
-    <string name="add_new_point_add_new_point_button_text">Add new point!</string>
+    <string name="add_new_point_add_new_point_button_text">Add new point</string>
     <string name="add_new_point_back_button_text">Back to trip adding window</string>
 
     <!-- YourTripsFragment layout strings -->
@@ -79,7 +79,7 @@
     <!-- HomeFragment layout string -->
     <string name="home_welcome_banner">Welcome to InoApp!</string>
     <string name="home_any_trip_text">It seems like you haven\'t started any trip yet…</string>
-    <string name="home_select_trip_text">Select one from your trips or see all of them in the main list ;-)</string>
+    <string name="home_select_trip_text">Select one from your trips or go to the main list to see all of them ;)</string>
     <string name="home_logo_image_content_description">Home logo image</string>
     <string name="home_your_trips_button_text">Select trip from your list</string>
     <string name="home_trip_list_button_text">See all available trips</string>
@@ -93,9 +93,8 @@
     <!-- GameFragment strings -->
     <string name="game_left_the_game_statement">You left the game.</string>
 
-    <!-- QuizFragment strings -->Right answer!
-    Click next button and keep exploring.
-    <string name="quiz_right_answer_statement">Right answer!\nClick next button and keep exploring.</string>
+    <!-- QuizFragment strings -->
+    <string name="quiz_right_answer_statement">Right answer!\nClick on the \'Next\' button and keep exploring.</string>
     <string name="quiz_wrong_answer_statement">Wrong answer :( Try again.</string>
     <string name="quiz_win_statement">Congratulations!\nYou have finished this trip.</string>
 
