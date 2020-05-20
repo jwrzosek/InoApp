@@ -215,6 +215,7 @@ class GameFragment : Fragment(), OnMapReadyCallback  {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
 
         enableMyLocation()
+        gameViewModel.doneShowingProgressBar()
     }
 
     private fun isPermissionGranted() : Boolean {

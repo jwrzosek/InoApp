@@ -61,7 +61,12 @@ class GameViewModel(
     val startQuizButtonVisible: LiveData<Int>
         get() = _startQuizButtonVisible
 
+    private val _progressBarVisible= MutableLiveData<Int>()
+    val progressBarVisible: LiveData<Int>
+        get() = _progressBarVisible
+
     init {
+        _progressBarVisible.value = View.VISIBLE
         trip = database.getTripById(tripId)
         points = database.getPointsById(tripId)
         _currentPointIndex.value = currentIndex
@@ -95,6 +100,11 @@ class GameViewModel(
         if (distanceToDestination < MINIMUM_DISTANCE_FOR_QUIZ) {
             _startQuizButtonVisible.value = View.VISIBLE
         }
+    }
+
+    /** Call this after map is ready */
+    fun doneShowingProgressBar() {
+        _progressBarVisible.value = View.GONE
     }
 
     /** Call this after navigation */
