@@ -52,7 +52,7 @@ class TripListFragment : Fragment() {
 
         // RecyclerView Adapter
         val adapter = TripListAdapter(TripClickListener { tripTitle ->
-            Toast.makeText(context, "Trip added: $tripTitle", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.trip_list_trip_added_statement) + tripTitle, Toast.LENGTH_SHORT).show()
             //Log.d("YourTripsFragment", "Typed trip id: $tripId") // todo: delete later
             tripListViewModel.onTripClicked(tripTitle)
         })

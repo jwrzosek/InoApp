@@ -50,7 +50,7 @@ class TripDetailsFragment : Fragment() {
                 saveTripInfoSharedPreferences(
                     arguments.tripIdKey,
                     requireNotNull(tripDetailsViewModel.getTrip().value?.numberOfPoints))
-                Toast.makeText(context, "Click 'GO TO YOUR GAME' to start your trip.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.trip_details_go_to_your_game_statement), Toast.LENGTH_SHORT).show()
                 tripDetailsViewModel.doneNavigating()
             }
         })
@@ -60,7 +60,7 @@ class TripDetailsFragment : Fragment() {
             if (it == true) { // Observed state is true.
                 clearSharedPreferences()
                 this.findNavController().navigateUp()
-                Toast.makeText(context, "Trip deleted.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.trip_details_trip_deleted_statement), Toast.LENGTH_SHORT).show()
                 tripDetailsViewModel.doneNavigating()
             }
         })

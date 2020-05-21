@@ -54,7 +54,7 @@ class AddNewTripFragment : Fragment() {
         // if data is incomplete then show Toast to user
         viewModel.showIncompleteDataToast.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
-                Toast.makeText(application, "Complete your trip information!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(application, getString(R.string.add_new_trip_complete_info_statement), Toast.LENGTH_SHORT).show()
                 viewModel.doneShowingToast()
             }
         })
@@ -62,7 +62,7 @@ class AddNewTripFragment : Fragment() {
         // if user try to delete last point when there are no points on a list show Toast to user
         viewModel.showNoPointsStatement.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
-                Toast.makeText(application, "No points added.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(application, getString(R.string.add_new_trip_no_points_statement), Toast.LENGTH_SHORT).show()
                 viewModel.doneShowingToast()
             }
         })
