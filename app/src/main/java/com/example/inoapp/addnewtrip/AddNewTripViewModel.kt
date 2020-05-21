@@ -130,6 +130,7 @@ open class AddNewTripViewModel(dataSource: TripDatabaseDao) : ViewModel() {
      * Executes when the add_new_trip_add_button is clicked.
      */
     fun onAddNewTrip() {
+        // todo: add check for minimum number of points before adding trip
         if(tripTitle.value != "" && tripDescription.value != ""
             && tripLocalization.value != "") {
             uiScope.launch {

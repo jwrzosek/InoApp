@@ -1,6 +1,7 @@
 <resources>
 
     <!-- ENG -->
+<!--
     <string name="app_name">InoApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -9,7 +10,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Navigation Drawer menu string -->
+    &lt;!&ndash; Navigation Drawer menu string &ndash;&gt;
     <string name="menu_home">Home</string>
     <string name="menu_trip_list">All Trips</string>
     <string name="menu_your_trips">Your Trips</string>
@@ -17,14 +18,14 @@
     <string name="menu_about">About Us</string>
     <string name="menu_contact">Contact Us</string>
 
-    <!-- About strings -->
+    &lt;!&ndash; About strings &ndash;&gt;
     <string name="about_text">Ino App was created to provide an interesting way to spend time actively. Feel free to
         discover unknown, amazing
         places and learn something about them by solving quizzes and trying to get to the right location.
     </string>
     <string name="about_app_logo_image_content_description">App logo image</string>
 
-    <!-- Titles of fragments supportActionBars  -->
+    &lt;!&ndash; Titles of fragments supportActionBars  &ndash;&gt;
     <string name="title_about_fragment">About Us</string>
     <string name="title_trip_list_fragment">Trip List</string>
     <string name="title_home_fragment">Ino App</string>
@@ -36,14 +37,14 @@
     <string name="title_game_fragment">Let\'s play</string>
     <string name="title_quiz">Quiz</string>
 
-    <!-- Card view default strings -->
+    &lt;!&ndash; Card view default strings &ndash;&gt;
     <string name="card_view_title_default">Trip title</string>
     <string name="card_view_description_default">Trip description</string>
 
     <string name="card_view_localization_default">Trip localization</string>
     <string name="card_view_number_of_points_default">Trip number of points</string>
 
-    <!-- AddNewTripFragment layout strings -->
+    &lt;!&ndash; AddNewTripFragment layout strings &ndash;&gt;
     <string name="add_new_trip_trip_title">Trip title:</string>
     <string name="add_new_trip_trip_title_hint">Enter trip title</string>
     <string name="add_new_trip_trip_description">Trip description:</string>
@@ -57,11 +58,11 @@
     <string name="add_new_trip_button_add_new_trip">Add new trip</string>
     <string name="add_new_trip_number_of_points_format">Number of points: %d</string>
 
-    <!-- AddNewTripFragment strings -->
+    &lt;!&ndash; AddNewTripFragment strings &ndash;&gt;
     <string name="add_new_trip_complete_info_statement">Complete your trip information!</string>
     <string name="add_new_trip_no_points_statement">No points added.</string>
 
-    <!-- AddNewPointFragment layout strings -->
+    &lt;!&ndash; AddNewPointFragment layout strings &ndash;&gt;
     <string name="add_new_point_location_label">Point location:</string>
     <string name="add_new_point_add_location_button_text">Add point location</string>
     <string name="add_new_point_add_description_label_text">Point description:</string>
@@ -74,18 +75,18 @@
     <string name="add_new_point_add_new_point_button_text">Add new point</string>
     <string name="add_new_point_back_button_text">Back to trip adding window</string>
 
-    <!-- AddNewPointFragment strings -->
+    &lt;!&ndash; AddNewPointFragment strings &ndash;&gt;
     <string name="add_new_point_complete_info_statement">Complete your point information!</string>
 
-    <!-- YourTripsFragment layout strings -->
+    &lt;!&ndash; YourTripsFragment layout strings &ndash;&gt;
     <string name="your_trips_clear_last_trip_button">Clear Last Trip</string>
 
-    <!-- MapFragment layout strings -->
+    &lt;!&ndash; MapFragment layout strings &ndash;&gt;
     <string name="map_fragment_add_location">Add location</string>
     <string name="coordinates_format">Coordinates:\nLat: %f, Long: %f</string>
     <string name="dropped_pin">Point location</string>
 
-    <!-- HomeFragment layout string -->
+    &lt;!&ndash; HomeFragment layout string &ndash;&gt;
     <string name="home_welcome_banner">Welcome to InoApp!</string>
     <string name="home_any_trip_text">It seems like you haven\'t started any trip yet…</string>
     <string name="home_select_trip_text">Select one from your trips or go to the main list to see all of them ;)</string>
@@ -96,38 +97,54 @@
     <string name="home_about_button_text">About InoApp</string>
     <string name="home_game_button_text">Go to your game</string>
 
-    <!-- GameFragment layout strings -->
+    &lt;!&ndash; GameFragment layout strings &ndash;&gt;
     <string name="game_toggle_view_button_text">Toggle View</string>
     <string name="game_end_trip_button_text">End trip</string>
-    <!-- GameFragment strings -->
+    &lt;!&ndash; GameFragment strings &ndash;&gt;
     <string name="game_left_the_game_statement">You left the game.</string>
 
-    <!-- QuizFragment strings -->
+    &lt;!&ndash; QuizFragment strings &ndash;&gt;
     <string name="quiz_right_answer_statement">Right answer!\nClick on the \'Next\' button and keep exploring.</string>
     <string name="quiz_wrong_answer_statement">Wrong answer :( Try again.</string>
     <string name="quiz_win_statement">Congratulations!\nYou have finished this trip.</string>
 
-    <!-- TripDetailsFragment strings -->
+    &lt;!&ndash; TripDetailsFragment strings &ndash;&gt;
     <string name="trip_details_trip_deleted_statement">Trip deleted.</string>
     <string name="trip_details_go_to_your_game_statement">Click \'GO TO YOUR GAME\' to start your trip.</string>
 
-    <!-- TripListFragment striongs-->
-    <string name="trip_list_trip_added_statement">\"Trip added: \"</string>
+    &lt;!&ndash; TripListFragment striongs&ndash;&gt;
+    <string name="trip_list_trip_added_statement">Trip added: </string>
 
-    <!-- SharedPreferences keys -->
+    &lt;!&ndash; SharedPreferences keys &ndash;&gt;
     <string name="saved_trip_id">tripId</string>
     <string name="saved_trip_number_of_points">tripNumberOfPoints</string>
     <string name="saved_current_point_index">currentPointIndex</string>
 
-    <!-- BindingUtils strings-->
+    &lt;!&ndash; BindingUtils strings&ndash;&gt;
     <string name="game_point_format">Point %d of %d</string>
+    <string name="binding_utils_tripLocalizationForTripList">Localization: </string>
+    <string name="binding_utils_tripNumberOfPointsForTripList">Number of points: </string>
+    <string name="binding_utils_tripTitleForGame">Trip title:</string>
+    <string name="binding_utils_tripDescriptionForGame">Trip description:</string>
+    <string name="binding_utils_pointDescriptionForGame">Point title:</string>
+    <string name="binding_utils_tripLocalizationForDetails">Trip localization:</string>
+    <string name="binding_utils_tripNumberOfPointsForDetails">Number of points:</string>
+    <string name="binding_utils_distanceLeftForGame">Distance to next point:</string>
+    <string name="binding_utils_distanceLeftForGame_counting_distance">Distance to next point:\nCounting distance…</string>
+    <string name="binding_utils_pointDescriptionForQuiz">Point description:</string>
+    <string name="binding_utils_questionForQuiz">Question:</string>
+    <string name="binding_utils_setAnswerForQuiz_error_text">error</string>
+    <string name="binding_utils_setTripWhichPointForGame_1">Point </string>
+    <string name="binding_utils_setTripWhichPointForGame_2"> of </string>
 
     <string name="title_activity_maps">Map</string>
+-->
+
 
 
     <!-- PL -->
 
-    <!--<string name="app_name">InoApp</string>
+    <string name="app_name">InoApp</string>
     <string name="navigation_drawer_open">Otwórz okno nawigacji</string>
     <string name="navigation_drawer_close">Zamknij okno nawigacji</string>
     <string name="nav_header_title">InoApp</string>
@@ -135,7 +152,7 @@
     <string name="nav_header_desc">Nagłówek okna nawigacji</string>
     <string name="action_settings">Ustawienia</string>
 
-    &lt;!&ndash; Navigation Drawer menu string &ndash;&gt;
+    <!-- Navigation Drawer menu string -->
     <string name="menu_home">Ekran główny</string>
     <string name="menu_trip_list">Wszystkie wycieczki</string>
     <string name="menu_your_trips">Twoje wycieczki</string>
@@ -143,15 +160,15 @@
     <string name="menu_about">O aplikacji</string>
     <string name="menu_contact">Napisz do nas</string>
 
-    &lt;!&ndash; About strings &ndash;&gt;
+    <!-- About strings -->
     <string name="about_text">Ino App zostało stworzone w celu zapewnienia interesującego sposobu
-        do aktywengo spędzania czasu. Z InoApp możesz odkrywać nieznane, ciekawe miejsca oraz dowiadywać
-        się ciekawostek o nich poprzez rozwiązywanie quizów. Wybierz wycieczke i spróbuj dotrzeć do właściwej
+        na aktywne spędzanie czasu. Z InoApp możesz odkrywać nieznane, ciekawe miejsca oraz dowiadywać
+        się ciekawostek na ich temat poprzez rozwiązywanie quizów. Wybierz wycieczkę i spróbuj dotrzeć do właściwej
         lokalizacji.
     </string>
     <string name="about_app_logo_image_content_description">Logo aplikacji</string>
 
-    &lt;!&ndash; Titles of fragments supportActionBars  &ndash;&gt;
+    <!-- Titles of fragments supportActionBars  -->
     <string name="title_about_fragment">O aplikacji</string>
     <string name="title_trip_list_fragment">Wszystkie wycieczki</string>
     <string name="title_home_fragment">Ino App</string>
@@ -160,17 +177,17 @@
     <string name="title_add_new_point">Dodaj nowy punkt</string>
     <string name="title_add_new_point_location">Dodaj lokalizację punktu</string>
     <string name="title_trip_details_fragment">Szczegóły wycieczki</string>
-    <string name="title_game_fragment">Let\'s play</string>
+    <string name="title_game_fragment">Gra</string>
     <string name="title_quiz">Quiz</string>
 
-    &lt;!&ndash; Card view default strings &ndash;&gt;
+    <!-- Card view default strings -->
     <string name="card_view_title_default">Tytuł</string>
     <string name="card_view_description_default">Opis</string>
 
     <string name="card_view_localization_default">Lokalizacja</string>
     <string name="card_view_number_of_points_default">Liczba punktów</string>
 
-    &lt;!&ndash; AddNewTripFragment layout strings &ndash;&gt;
+    <!-- AddNewTripFragment layout strings -->
     <string name="add_new_trip_trip_title">Tytuł wycieczki:</string>
     <string name="add_new_trip_trip_title_hint">Wprowadź tytuł</string>
     <string name="add_new_trip_trip_description">Opis wycieczki:</string>
@@ -184,11 +201,11 @@
     <string name="add_new_trip_button_add_new_trip">Dodaj wycieczkę</string>
     <string name="add_new_trip_number_of_points_format">Liczba punktów: %d</string>
 
-    &lt;!&ndash; AddNewTripFragment strings &ndash;&gt;
+    <!-- AddNewTripFragment strings -->
     <string name="add_new_trip_complete_info_statement">Uzupełnij informację o wycieczce!</string>
     <string name="add_new_trip_no_points_statement">Nie dodano żadnych punktów.</string>
 
-    &lt;!&ndash; AddNewPointFragment layout strings &ndash;&gt;
+    <!-- AddNewPointFragment layout strings -->
     <string name="add_new_point_location_label">Lokalizacja punktu:</string>
     <string name="add_new_point_add_location_button_text">Dodaj lokalizację</string>
     <string name="add_new_point_add_description_label_text">Opis punktu:</string>
@@ -201,18 +218,18 @@
     <string name="add_new_point_add_new_point_button_text">Dodaj punkt</string>
     <string name="add_new_point_back_button_text">Wróć do okna wycieczki</string>
 
-    &lt;!&ndash; AddNewPointFragment strings &ndash;&gt;
+    <!-- AddNewPointFragment strings -->
     <string name="add_new_point_complete_info_statement">Uzupełnij informacje o punkcie!</string>
 
-    &lt;!&ndash; YourTripsFragment layout strings &ndash;&gt;
+    <!-- YourTripsFragment layout strings -->
     <string name="your_trips_clear_last_trip_button">Usuń ostatnią wycieczkę</string>
 
-    &lt;!&ndash; MapFragment layout strings &ndash;&gt;
+    <!-- MapFragment layout strings -->
     <string name="map_fragment_add_location">Dodaj lokalizację</string>
     <string name="coordinates_format">Współczędne:\nLat: %f, Long: %f</string>
     <string name="dropped_pin">Lokalizacja punktu</string>
 
-    &lt;!&ndash; HomeFragment layout string &ndash;&gt;
+    <!-- HomeFragment layout string -->
     <string name="home_welcome_banner">Witaj w InoApp!</string>
     <string name="home_any_trip_text">Wygląda na to, że nie wybrałeś jeszcze żadnej wycieczki…</string>
     <string name="home_select_trip_text">Wybierz jedną ze swojej listy lub zobacz je wszystkie w zakładce \"Wszystkie wycieczki\" ;)</string>
@@ -223,31 +240,45 @@
     <string name="home_about_button_text">O aplikacji</string>
     <string name="home_game_button_text">Rozpocznij grę</string>
 
-    &lt;!&ndash; TripDetailsFragment string &ndash;&gt;
+    <!-- TripDetailsFragment string -->
     <string name="trip_details_trip_deleted_statement">Usunięto wycieczkę.</string>
     <string name="trip_details_go_to_your_game_statement">Kliknij \"ROZPOCZNIJ GRĘ\" aby rozpocząć wycieczkę.</string>
 
-    &lt;!&ndash; GameFragment layout strings &ndash;&gt;
+    <!-- GameFragment layout strings -->
     <string name="game_toggle_view_button_text">Zmień widok</string>
     <string name="game_end_trip_button_text">Zakończ wycieczkę</string>
-    &lt;!&ndash; GameFragment strings &ndash;&gt;
+    <!-- GameFragment strings -->
     <string name="game_left_the_game_statement">Wyszedłeś z gry.</string>
 
-    &lt;!&ndash; TripListFragment strings &ndash;&gt;
-    <string name="trip_list_trip_added_statement">\"Dodano wycieczkę: \"</string>
+    <!-- TripListFragment strings -->
+    <string name="trip_list_trip_added_statement">Dodano wycieczkę: </string>
 
-    &lt;!&ndash; QuizFragment strings &ndash;&gt;
+    <!-- QuizFragment strings -->
     <string name="quiz_right_answer_statement">Prawidłowa odpowiedź!\nKliknij przycisk \'Przejdź dalej\' aby kontynuować.</string>
     <string name="quiz_wrong_answer_statement">Zła odpowiedź :( Spróbuj ponownie.</string>
     <string name="quiz_win_statement">Gratulacje!\nUkończyłeś wycieczkę.</string>
 
-    &lt;!&ndash; SharedPreferences keys &ndash;&gt;
+    <!-- SharedPreferences keys -->
     <string name="saved_trip_id">tripId</string>
     <string name="saved_trip_number_of_points">tripNumberOfPoints</string>
     <string name="saved_current_point_index">currentPointIndex</string>
 
-    &lt;!&ndash; BindingUtils strings&ndash;&gt;
+    <!-- BindingUtils strings-->
     <string name="game_point_format">Punkt %d z %d</string>
+    <string name="binding_utils_tripLocalizationForTripList">Lokalizacja: </string>
+    <string name="binding_utils_tripNumberOfPointsForTripList">Liczba punktów: </string>
+    <string name="binding_utils_tripTitleForGame">Tytuł wycieczki:</string>
+    <string name="binding_utils_tripDescriptionForGame">Opis wycieczki:</string>
+    <string name="binding_utils_pointDescriptionForGame">Tytuł punktu:</string>
+    <string name="binding_utils_tripLocalizationForDetails">Lokalizacja wycieczki:</string>
+    <string name="binding_utils_tripNumberOfPointsForDetails">Liczba punktów:</string>
+    <string name="binding_utils_distanceLeftForGame">Dystans do następnego punktu:</string>
+    <string name="binding_utils_distanceLeftForGame_counting_distance">Dystans do następnego punktu:\nObliczanie dystansu…</string>
+    <string name="binding_utils_pointDescriptionForQuiz">Opis punktu:</string>
+    <string name="binding_utils_questionForQuiz">Pytanie:</string>
+    <string name="binding_utils_setAnswerForQuiz_error_text">Błąd</string>
+    <string name="binding_utils_setTripWhichPointForGame_1">Punkt </string>
+    <string name="binding_utils_setTripWhichPointForGame_2"> z </string>
 
-    <string name="title_activity_maps">Mapa</string>-->
+    <string name="title_activity_maps">Mapa</string>
 </resources>

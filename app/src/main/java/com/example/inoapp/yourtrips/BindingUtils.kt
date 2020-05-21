@@ -60,7 +60,7 @@ fun TextView.setTripNumberOfPoints(item: Trip?) {
 fun TextView.setTripLocalizationForTripList(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Localization: ${item.tripLocalization}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripLocalizationForTripList) + item.tripLocalization
         text = stringFormatted
     }
 }
@@ -69,7 +69,7 @@ fun TextView.setTripLocalizationForTripList(item: Trip?) {
 fun TextView.setTripNumberOfPointsForTripList(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Number of points: ${item.numberOfPoints}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripNumberOfPointsForTripList) + item.numberOfPoints
         text = stringFormatted
     }
 }
@@ -79,7 +79,7 @@ fun TextView.setTripNumberOfPointsForTripList(item: Trip?) {
 fun TextView.setTripTitleForGame(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip title:\n${item.tripTitle}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripTitleForGame) + "\n"+ item.tripTitle
         text = stringFormatted
     }
 }
@@ -88,7 +88,7 @@ fun TextView.setTripTitleForGame(item: Trip?) {
 fun TextView.setTripDescriptionForGame(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip description:\n${item.tripDescription}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripDescriptionForGame) + "\n" + item.tripDescription
         text = stringFormatted
     }
 }
@@ -97,7 +97,8 @@ fun TextView.setTripDescriptionForGame(item: Trip?) {
 fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = if(item.numberOfPoints >= currentIndex+1) "Point ${currentIndex + 1} of ${item.numberOfPoints}"
+        val stringFormatted = if(item.numberOfPoints >= currentIndex+1) context.getString(R.string.binding_utils_setTripWhichPointForGame_1) + " " +
+                (currentIndex + 1) + " " + context.getString(R.string.binding_utils_setTripWhichPointForGame_2) + " " + item.numberOfPoints
                                 else ""
         text = stringFormatted
     }
@@ -107,7 +108,7 @@ fun TextView.setTripWhichPointForGame(item: Trip?, currentIndex: Int) {
 fun TextView.setPointDescriptionForGame(item: Point?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Point title:\n${item.pointDescription}"
+        val stringFormatted = context.getString(R.string.binding_utils_pointDescriptionForGame) + "\n" + item.pointDescription
         text = stringFormatted
     }
 }
@@ -117,7 +118,7 @@ fun TextView.setPointDescriptionForGame(item: Point?) {
 fun TextView.setTripLocalizationForDetails(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Trip localization:\n${item.tripLocalization}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripLocalizationForDetails) + "\n" + item.tripLocalization
         text = stringFormatted
     }
 }
@@ -126,7 +127,7 @@ fun TextView.setTripLocalizationForDetails(item: Trip?) {
 fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Number of points:\n${item.numberOfPoints}"
+        val stringFormatted = context.getString(R.string.binding_utils_tripNumberOfPointsForDetails) + "\n" + item.numberOfPoints
         text = stringFormatted
     }
 }
@@ -135,8 +136,8 @@ fun TextView.setTripNumberOfPointsForDetails(item: Trip?) {
 @BindingAdapter("distanceLeftForGame")
 fun TextView.setDistanceLeftForGame(distance: Float) {
     val distanceLeft = distance.toInt()
-    val stringFormatted = if (distanceLeft > 1) "Distance to next point:\n${distanceLeft} m"
-                            else "Distance to next point:\nCounting distance..."
+    val stringFormatted = if (distanceLeft > 1) context.getString(R.string.binding_utils_distanceLeftForGame) + "\n" + distanceLeft + " m"
+                            else context.getString(R.string.binding_utils_distanceLeftForGame_counting_distance)
     text = stringFormatted
 }
 
@@ -161,7 +162,7 @@ fun MapView.setGoogleMapsMarkerForGame(item: Point?) {
 fun TextView.setPointDescriptionForQuiz(item: Point?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Point description:\n${item.pointDescription}"
+        val stringFormatted = context.getString(R.string.binding_utils_pointDescriptionForQuiz) + "\n" + item.pointDescription
         text = stringFormatted
     }
 }
@@ -169,7 +170,7 @@ fun TextView.setPointDescriptionForQuiz(item: Point?) {
 fun TextView.setQuestionForQuiz(item: Point?) {
     // null check because LiveData starts as a null
     item?.let {
-        val stringFormatted = "Question:\n${item.pointQuestion}"
+        val stringFormatted = context.getString(R.string.binding_utils_questionForQuiz) + "\n" + item.pointQuestion
         text = stringFormatted
     }
 }
@@ -189,7 +190,7 @@ fun Button.setAnswerForQuiz(item: Point?, whichButton: Int) {
                 item.wrongAnswer2
             }
             else -> {
-                "blad"
+                context.getString(R.string.binding_utils_setAnswerForQuiz_error_text)
             }
         }
     }
